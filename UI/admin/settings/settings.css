@@ -1,0 +1,341 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    background: #f4f4f4;
+    position: relative;
+    display: flex;
+}
+
+#menu{
+    background: #ffffff;
+    width: 300px;
+    height: 100%;
+    box-shadow: 5px 0px 32px 6px rgba(0,0,0,0.26);
+    position: fixed;
+    top: 0%;
+    left: 0%;
+}
+
+#menu .logo{
+    display: flex;
+    align-items: center;
+    color: #0328aec3;
+    padding: 30px 20px 20px 20px;
+    font-size: 13px;
+}
+
+#menu .logo img{
+    width: 40px;
+    margin-right: 12px;
+}
+
+#menu .item{
+    margin-top: 40px;
+}
+
+#menu  .items li{
+    list-style: none;
+    padding: 15px 0;
+    transition: 0.3s ease;
+}
+
+#menu  .items li:hover{
+    background: #0328aec3;
+    cursor: pointer;
+}
+
+#menu  .items li:nth-child(5){
+    border-left: 4px solid #0328aec3;
+}
+
+#menu  .items li:nth-child(7){
+    margin-top: 80px;
+    color: #929293;
+}
+
+#menu  .items li i{
+    color: #0328aec3;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    margin: 0 10px 0 25px;
+}
+
+#menu  .items li:hover i,
+#menu  .items li:hover a{
+    color: #ffffff;
+}
+
+#menu  .items li a{
+    text-decoration: none;
+    color: #0328aec3;
+    font-weight: 300px;
+    transition: 0.3s ease;
+}
+
+#interface{
+    width: calc(100% - 300px);
+    margin-left: 300px;
+    position: relative;
+}
+
+#interface .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 10px 30px;
+    border-bottom: 3px solid #0328aec3;
+    height: 70px; 
+    position: fixed;
+    width: calc(100% - 300px);
+}
+
+#interface .navigation .search {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1px solid #d7dbe6;
+  border-radius: 4px;
+}
+
+#interface .navigation .search i{
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+#interface .navigation .search input{
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+#interface .navigation .profile{
+    display: flex;
+    align-items: center;
+     height: 100%;
+}
+
+#interface .navigation .profile i{
+    margin: 0 20px 0 0;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+#interface .navigation .profile img{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0;
+}
+
+.i-name{
+    color: #0328aec3;
+    padding: 30px 30px 0 30px;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 70px;
+}
+
+.n1{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#menu-btn{
+    display: none;
+    color: #2b2b2b;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+.scholars{
+    padding: 20px 30px 0 30px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.scholars .val-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.scholars .val-box{
+    background: #ffffff;
+    width: 255px;
+    padding: 16px 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.scholars .val-box:nth-child(1) i{
+    background: #0328aec3;
+}
+
+.scholars .val-box:nth-child(2) i{
+    background: #0a2483;
+}
+
+.scholars .val-box i{
+    font-size: 25px;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    color: #ffffff;
+    background-color: #0328aec3;
+    margin-right: 15px;
+}
+
+.scholars .val-box h3{
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.scholars .val-box span{
+    font-size: 14px;
+    color: #929293;
+}
+
+.container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 95%;
+  margin: 30px 0 30px 30px;
+}
+
+.settings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.card h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.card li {
+  margin: 8px 0;
+}
+
+.card a {
+  color: #0328aec3;
+  text-decoration: none;
+  padding: 4px 0;
+  display: inline-block;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+
+@media screen and (max-width: 769px) {
+    #menu {
+        width: 270px;
+        position: fixed;
+        left: -270px;
+    }
+    #menu-btn{
+        display: initial;
+    }
+    #menu.active{
+        left: 0px;
+    }
+    #interface {
+        width: 100%;
+        margin-left: 0px;
+        display: inline-block;
+        transition: 0.3 ease;
+    }
+    #menu.active~ #interface{
+        width: calc(100% - 270px);
+        margin-left: 270px;
+        transition: 0.3 ease;
+    }
+    #interface .navigation {
+        width: 100%;
+    }
+    .documents {
+        padding: 30px 30px 0 30px;
+        justify-content: flex-start;
+    }
+    .documents .val-box {
+        padding: 16px 20px;
+        margin: 10px 20px 10px 0;
+    }
+    .board {
+        width: 92%;
+        padding: 0;
+        overflow-x: auto;
+    }
+    table{
+        width: 100%;
+        border-collapse: collapse;
+    }
+}
+
+@media screen and (max-width: 477px) {
+    #interface .navigation {
+        padding: 15px;
+    }
+    #interface .navigation .search input{
+        width: 150px;
+    }
+    .i-name{
+        padding: 30px 15px 0 15px;
+    }
+    .documents{
+        padding: 15px 15px 0 15px;
+    }
+    .documents .val-box{
+        width: 100%;
+        margin: 8px 0;
+    }
+    .board{
+        margin: 30px 15px 30px 15px;
+    }
+}
