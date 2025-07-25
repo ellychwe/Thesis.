@@ -1,0 +1,388 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    background: #f4f4f4;
+    position: relative;
+    display: flex;
+}
+
+#menu{
+    background: #ffffff;
+    width: 300px;
+    height: 100%;
+    box-shadow: 5px 0px 32px 6px rgba(0,0,0,0.26);
+    position: fixed;
+    top: 0%;
+    left: 0%;
+}
+
+#menu .logo{
+    display: flex;
+    align-items: center;
+    color: #0328aec3;
+    padding: 30px 20px 20px 20px;
+    font-size: 13px;
+}
+
+#menu .logo img{
+    width: 40px;
+    margin-right: 12px;
+}
+
+#menu .item{
+    margin-top: 40px;
+}
+
+#menu  .items li{
+    list-style: none;
+    padding: 15px 0;
+    transition: 0.3s ease;
+}
+
+#menu  .items li:hover{
+    background: #0328aec3;
+    cursor: pointer;
+}
+
+#menu  .items li:nth-child(7){
+    border-left: 4px solid #0328aec3;
+}
+
+#menu  .items li:nth-child(8){
+    margin-top: 30px;
+    color: #929293;
+}
+
+#menu  .items li i{
+    color: #0328aec3;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    margin: 0 10px 0 25px;
+}
+
+#menu  .items li:hover i,
+#menu  .items li:hover a{
+    color: #ffffff;
+}
+
+#menu  .items li a{
+    text-decoration: none;
+    color: #0328aec3;
+    font-weight: 300px;
+    transition: 0.3s ease;
+}
+
+#interface{
+    width: calc(100% - 300px);
+    margin-left: 300px;
+    position: relative;
+}
+
+#interface .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 10px 30px;
+    border-bottom: 3px solid #0328aec3;
+    height: 70px; 
+    position: fixed;
+    width: calc(100% - 300px);
+}
+
+#interface .navigation .search {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1px solid #d7dbe6;
+  border-radius: 4px;
+}
+
+#interface .navigation .search i{
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+#interface .navigation .search input{
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+#interface .navigation .profile{
+    display: flex;
+    align-items: center;
+     height: 100%;
+}
+
+#interface .navigation .profile i{
+    margin: 0 20px 0 0;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+#interface .navigation .profile img{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0;
+}
+
+.i-name{
+    color: #0328aec3;
+    padding: 30px 30px 0 30px;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 70px;
+}
+
+.n1{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#menu-btn{
+    display: none;
+    color: #2b2b2b;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.documents{
+    padding: 17px 30px 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.documents .val-box{
+    background: #ffffff;
+    width: 175px;
+    padding: 9px 9px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.documents .val-box i {
+    color: #0328aec3;
+    margin-left: 5px;
+    font-size: 14px; 
+    width: auto;
+    height: auto;
+}
+
+.documents .val-box .dropbtn{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    background: none;
+    gap: 6px;
+    pointer-events: auto;
+    color: #333;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.documents .val-box .dropdown {
+  position: relative;
+  display: inline-block;
+  z-index: 10;
+}
+
+.documents .val-box .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff;
+  min-width: 100%;
+  z-index: 1000;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.documents .val-box .dropdown-content a {
+  color: black;
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+.documents .val-box .dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.documents .val-box .dropdown-content.show {
+  display: block;
+}
+
+/* Container to group the right-side buttons */
+.right-buttons {
+  display: flex;
+  gap: 6px; /* remove spacing */
+}
+
+/* Make all buttons same size */
+.documents .val-box.same-size {
+  width: 120px; /* You can adjust this value */
+  justify-content: center;
+  padding: 10px 0;
+}
+
+/* Button text style */
+.documents .val-box.same-size button {
+  width: 100%;
+  border: none;
+  background: none;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Hover effect (optional) */
+.documents .val-box.same-size button:hover {
+  border-radius: 6px;
+}
+
+.board{
+    width: 95%;
+    margin: 30px 0 30px 30px;
+    overflow: auto;
+    background: #ffffff;
+    border-radius: 8px;
+}
+
+.board h5{
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.board p{
+    font-weight: 400;
+    font-size: 13px;
+    color: #4e4e4f;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+tr{
+    border-bottom: 1px solid #dfdede;
+}
+
+thead td{
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 400;
+    background-color: #ffffff;
+    text-align: start;
+    padding: 15px;
+}
+
+tbody tr td{
+    padding: 10px 15px;
+}
+
+.status p{
+    background: #d7fada;
+    padding: 2px 10px;
+    display: inline-block;
+    border-radius: 40px;
+    color: #2b2b2b;
+}
+
+
+
+@media screen and (max-width: 769px) {
+    #menu {
+        width: 270px;
+        position: fixed;
+        left: -270px;
+    }
+    #menu-btn{
+        display: initial;
+    }
+    #menu.active{
+        left: 0px;
+    }
+    #interface {
+        width: 100%;
+        margin-left: 0px;
+        display: inline-block;
+        transition: 0.3 ease;
+    }
+    #menu.active~ #interface{
+        width: calc(100% - 270px);
+        margin-left: 270px;
+        transition: 0.3 ease;
+    }
+    #interface .navigation {
+        width: 100%;
+    }
+    .documents {
+        padding: 30px 30px 0 30px;
+        justify-content: flex-start;
+    }
+    .documents .val-box {
+        padding: 16px 20px;
+        margin: 10px 20px 10px 0;
+    }
+    .board {
+        width: 92%;
+        padding: 0;
+        overflow-x: auto;
+    }
+    table{
+        width: 100%;
+        border-collapse: collapse;
+    }
+}
+
+@media screen and (max-width: 477px) {
+    #interface .navigation {
+        padding: 15px;
+    }
+    #interface .navigation .search input{
+        width: 150px;
+    }
+    .i-name{
+        padding: 30px 15px 0 15px;
+    }
+    .documents{
+        padding: 15px 15px 0 15px;
+    }
+    .documents .val-box{
+        width: 100%;
+        margin: 8px 0;
+    }
+    .board{
+        margin: 30px 15px 30px 15px;
+    }
+}
