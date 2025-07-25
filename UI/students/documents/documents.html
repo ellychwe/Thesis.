@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documents</title>
+    <link rel="stylesheet" href="documents.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/d8f1bbefaf.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+
+    <section id="menu">
+        <div class="logo">
+            <img src="logo.png" alt="">
+            <h2>Scholarship System</h2>
+        </div>
+        <div class="items">
+            <li><i class="fa-solid fa-gauge"></i><a href="#">Dashboard</a></li>
+            <li><i class="fa-solid fa-user"></i><a href="#">My Profile</a></li>
+            <li><i class="fa-solid fa-file-import"></i><a href="#">Apply for Scholarship</a></li>
+            <li><i class="fa-solid fa-circle-notch"></i><a href="#">Application Status</a></li>
+            <li><i class="fa-solid fa-file"></i><a href="#">Documents</a></li>
+            <li><i class="fa-solid fa-file-contract"></i><a href="#">Renewal & Expiry Tracker</a></li>
+            <li><i class="fa-solid fa-square-poll-vertical"></i><a href="#">Scholarship Results</a></li>
+            <li id="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="#">Log-out</a></li>
+        </div>
+
+    </section>
+    
+    <section id="interface">
+        <div class="navigation">
+            <div class="n1">
+                <div>
+                    <i id="menu-btn" class="fa-solid fa-bars"></i>
+                </div>
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+                <div class="profile">
+                    <i class="fa-solid fa-comment"></i>
+                    <i class="fa-solid fa-bell"></i>
+                    <img src="account.jpg" alt="Profile" class="profile-icon"/>
+                </div>  
+            </div>
+            </div>
+
+            <h3 class="i-name">
+                Documents and Files
+            </h3>
+
+            <div class="top-bar">
+            <input type="text" placeholder="Search...">
+            <select>
+            <option>Sort by</option>
+            </select>
+        </div>
+
+        <div class="folders">
+            <div class="folder"><span class="folder-icon">📁</span> 1st Year Files</div>
+            <div class="folder"><span class="folder-icon">📁</span> 2nd Year Files</div>
+            <div class="folder"><span class="folder-icon">📁</span> 3rd Year Files</div>
+            <div class="folder"><span class="folder-icon">📁</span> Forms</div>
+            <div class="folder"><span class="folder-icon">📁</span> Other Files</div>
+        </div>
+
+        <div class="files-table">
+            <table>
+            <thead>
+                <tr>
+                <th>Name</th>
+                <th>Last Modified</th>
+                <th>Location</th>
+                <th>Size</th>
+                <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Repeat row -->
+                <tr>
+                <td>Certificate of Grades</td>
+                <td>You opened · May 9, 2025</td>
+                <td>
+                    <div class="folder-location">
+                    <span class="folder-icon">📁</span> 3rd Year Files
+                    </div>
+                </td>
+                <td>3 MB</td>
+                <td><span class="ellipsis">⋮</span></td>
+                </tr>
+                <!-- Duplicate this row as needed -->
+                <tr>
+                <td>Certificate of Grades</td>
+                <td>You opened · May 9, 2025</td>
+                <td>
+                    <div class="folder-location">
+                    <span class="folder-icon">📁</span> 3rd Year Files
+                    </div>
+                </td>
+                <td>3 MB</td>
+                <td><span class="ellipsis">⋮</span></td>
+                </tr>
+                <!-- Add more rows if needed -->
+            </tbody>
+            </table>
+        </div>
+    </section>
+<script>
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    window.addEventListener("click", function (event) {
+        if (!event.target.closest('.dropdown')) {
+        document.querySelectorAll(".dropdown-content").forEach(function (drop) {
+            drop.classList.remove("show");
+        });
+        }
+    });
+
+    document.getElementById('hierarchy').addEventListener('click', e => {
+    const span = e.target.closest('span.folder');
+    if (!span) return;
+
+    const container = span.parentElement;
+    const expanded = container.getAttribute('data-isexpanded') === 'true';
+    container.setAttribute('data-isexpanded', expanded ? 'false' : 'true');
+    });
+
+    const searchInput = document.getElementById('search');
+    searchInput.addEventListener('input', () => {
+    const term = searchInput.value.toLowerCase();
+    document.querySelectorAll('#hierarchy .foldercontainer').forEach(container => {
+        const folderText = container.querySelector('span.folder').textContent.toLowerCase();
+        const files = container.querySelectorAll('span.file');
+        const fileMatch = Array.from(files).some(f => f.textContent.toLowerCase().includes(term));
+        const visible = folderText.includes(term) || fileMatch;
+        container.style.display = visible ? '' : 'none';
+    });
+    });
+
+</script>
+
+
+</body>
+</html>
