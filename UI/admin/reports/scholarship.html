@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reports - Scholarship</title>
+    <link rel="stylesheet" href="scholarship.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/d8f1bbefaf.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+
+<section id="menu">
+    <div class="logo">
+        <img src="logo.png" alt="">
+        <h2>Scholarship System</h2>
+    </div>
+    <div class="items">
+        <li><i class="fa-solid fa-gauge"></i><a href="#">Dashboard</a></li>
+        <li><i class="fa-solid fa-file-pen"></i><a href="#">Verification</a></li>
+        <li><i class="fa-solid fa-file-import"></i><a href="#">Liquidation</a></li>
+        <li><i class="fa-solid fa-file"></i><a href="#">Reports</a></li>
+        <li><i class="fa-brands fa-google-scholar"></i><a href="#">Scholars List</a></li>
+        <li><i class="fa-solid fa-gear"></i><a href="#">Settings</a></li>
+        <li id="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="#">Log-out</a></li>
+    </div>
+</section>
+
+<section id="interface">
+    <div class="navigation">
+        <div class="n1">
+            <div><i id="menu-btn" class="fa-solid fa-bars"></i></div>
+            <div class="search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search">
+            </div>
+        </div>
+        <div class="profile">
+            <i class="fa-solid fa-comment"></i>
+            <i class="fa-solid fa-bell"></i>
+            <img src="account.jpg" alt="Profile" class="profile-icon"/>
+        </div>
+    </div>
+
+    <h3 class="i-name">Reports</h3>
+
+    <div class="documents">
+        <div class="val-box">
+            <div class="filter">Filter
+                <input type="text" id="min-date" placeholder="From">
+                <input type="text" id="max-date" placeholder="To">
+                <button id="clear">Search</button>
+            </div>
+        </div>
+        <div class="right-buttons">
+            <div class="val-box same-size">
+                <button class="imppbtn">Import File</button>
+            </div>
+            <div class="val-box same-size">
+                <button class="exportbtn">Export PDF</button>
+            </div>
+            <div class="val-box same-size">
+                <button class="exportbtn">Export Excel</button>
+            </div>
+        </div>
+    </div>
+
+    <nav class="tabs">
+        <button class="tab" data-link="reports.html" data-tab="overview">Verification Overview</button>
+        <button class="tab" data-link="renewals.html" data-tab="renewals">Renewals and Expirations</button>
+        <button class="tab" data-link="scholars.html" data-tab="scholars">Scholars Population</button>
+        <button class="tab active" data-link="scholarship.html" data-tab="scholarships">Scholarships</button>
+        <button class="tab" data-link="liquidation,r.html" data-tab="liquidation">Liquidation Report</button>
+        <div class="tabs-slider"></div>
+    </nav>
+
+    <a href="renewals.html" id="tabButton" class="btn-link"></a>
+
+    <div class="tab-contents active">
+
+        <!-- <div class="tab-content" id="overview"> 
+        </div>
+        -->
+        <div class="tab-content active" id="renewals">
+            <div class="report-container">
+                <h3>Active Scholarship Programs</h3>
+                <div class="report-content">
+                    <div class="report-box">
+                        <h4>Total Scholarship Programs</h4>
+                        <h1 style="color: #008000;">6</h1>
+                        <p>5 Government and 1 Private</p>
+                        <p><i class="fa-solid fa-calendar"></i> August 5, 2024 - March 27, 2025</p>
+                    </div>
+                    <div class="chart-box">
+                        <canvas id="donutChart" width="200" height="200"></canvas>
+                    </div>
+                    <div class="report-box">
+                        <h4>All Scholarship Programs</h4>
+                        <ul class="custom-legend">
+                            <li><span class="legend-dot orange"></span> PGCSP: 495</li>
+                            <li><span class="legend-dot blue"></span> TDP: 313</li>
+                            <li><span class="legend-dot green1"></span> TES: 139</li>
+                            <li><span class="legend-dot green2"></span> CMSP: 8</li>
+                            <li><span class="legend-dot red1"></span> COSCHO: 8</li>
+                            <li><span class="legend-dot red2"></span> IGUBAN: 5</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        <!--  
+        <div class="tab-content" id="scholars">
+            <h3>Scholars Population</h3>
+            <p>Scholars content goes here...</p>
+        </div>
+
+        <div class="tab-content" id="scholarships">
+            <h3>Scholarships</h3>
+            <p>Scholarships content goes here...</p>
+        </div>
+
+        <div class="tab-content" id="liquidation">
+            <h3>Liquidation Report</h3>
+            <p>Liquidation content goes here...</p>
+        </div>
+        -->
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tab');
+    const slider = document.querySelector('.tabs-slider');
+    const contents = document.querySelectorAll('.tab-content');
+    const tabButton = document.getElementById('tabButton');
+    let donutChartInstance = null;
+
+    function updateSlider(el) {
+        slider.style.left = el.offsetLeft + 'px';
+        slider.style.width = el.offsetWidth + 'px';
+    }
+
+    function initializeChart() {
+        const ctx = document.getElementById('donutChart')?.getContext('2d');
+        if (!ctx) return; // Prevent error if canvas not present
+
+        if (donutChartInstance) {
+            donutChartInstance.destroy();
+        }
+
+        donutChartInstance = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['PGCSP', 'TDP', 'TES', 'CMSP', 'COSCHO', 'IGUBAN'],
+                datasets: [{
+                    data: [495, 313, 139, 8, 8, 5],
+                    backgroundColor: ['#F4A300', '#4B7BE5', '#228B22', '#90EE90', '#F88379', '#A42A04'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                cutout: '70%',
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: (context) => `${context.label}: ${context.raw}`
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelector('.tab.active')?.classList.remove('active');
+            tab.classList.add('active');
+            updateSlider(tab);
+
+            const target = tab.getAttribute('data-tab');
+            document.querySelector('.tab-content.active')?.classList.remove('active');
+            document.getElementById(target)?.classList.add('active');
+
+            tabButton.setAttribute('href', tab.getAttribute('data-link'));
+
+            if (target === 'renewals') {
+                setTimeout(initializeChart, 100);
+            }
+        });
+    });
+
+    const initial = document.querySelector('.tab.active');
+    if (initial) {
+        updateSlider(initial);
+        const initialTarget = initial.getAttribute('data-tab');
+        document.getElementById(initialTarget)?.classList.add('active');
+        tabButton.setAttribute('href', initial.getAttribute('data-link'));
+
+        if (initialTarget === 'renewals') {
+            setTimeout(initializeChart, 100);
+        }
+    }
+
+    window.addEventListener('resize', () => updateSlider(document.querySelector('.tab.active')));
+});
+</script>
+
+</body>
+</html>
