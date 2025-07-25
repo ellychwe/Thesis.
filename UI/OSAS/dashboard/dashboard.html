@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/d8f1bbefaf.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+
+    <section id="menu">
+        <div class="logo">
+            <img src="logo.png" alt="">
+            <h2>Scholarship System</h2>
+        </div>
+        <div class="items">
+            <li><i class="fa-solid fa-gauge"></i><a href="#">Dashboard</a></li>
+            <li><i class="fa-solid fa-file"></i><a href="#">Reports</a></li>
+            <li><i class="fa-solid fa-gear"></i><a href="#">Settings</a></li>
+            <li id="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="#">Log-out</a></li>
+        </div>
+
+    </section>
+    
+    <section id="interface">
+        <div class="navigation">
+            <div class="n1">
+                <div>
+                    <i id="menu-btn" class="fa-solid fa-bars"></i>
+                </div>
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+                <div class="profile">
+                    <i class="fa-solid fa-comment"></i>
+                    <i class="fa-solid fa-bell"></i>
+                    <img src="account.jpg" alt="Profile" class="profile-icon"/>
+                </div>  
+            </div>
+            </div>
+
+            <h3 class="i-name">
+                OSAS Dashboard
+            </h3>
+
+            <div class="scholars">
+                <div class="val-box">
+                    <i class="fa-solid fa-users"></i>
+                    <div>
+                        <h3>959</h3>
+                        <span>Student Scholars</span>
+                    </div>
+                </div>
+
+                <div class="val-box">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <div>
+                        <h3>6</h3>
+                        <span>Active Scholarships</span>
+                    </div>
+                </div>
+            </div>
+
+            <dir class="board">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <td>Name of Scholarship</td>
+                            <td>Type of Scholarship</td>
+                            <td>Intended Beneficiaries</td>
+                            <td>No. of Beneficiaries</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="name">
+                                <h5>Tertiary Education Subsidy</h5>
+                            </td>
+
+                            <td class="type">
+                                <p>Scholarship</p>
+                            </td>
+
+                            <td class="beneficiaries">
+                                <p>N/A</p>
+                            </td>
+
+                            <td class="no">
+                                <p>137</p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="name">
+                                <h5>Tulong Dunong Program</h5>
+                            </td>
+
+                            <td class="type">
+                                <p>Scholarship</p>
+                            </td>
+
+                            <td class="beneficiaries">
+                                <p>N/A</p>
+                            </td>
+
+                            <td class="no">
+                                <p>320</p>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </dir>
+    </section>
+    <script>
+        $('#menu-btn').click(function(){
+        $('#menu').toggleClass("active");
+        });
+    </script>
+
+</body>
+</html>
