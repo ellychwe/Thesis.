@@ -1,0 +1,375 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins';
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    background: #f4f4f4;
+    position: relative;
+    display: flex;
+}
+
+#menu{
+    background: #ffffff;
+    width: 300px;
+    height: 100%;
+    box-shadow: 5px 0px 32px 6px rgba(0,0,0,0.26);
+    position: fixed;
+    top: 0%;
+    left: 0%;
+}
+
+#menu .logo{
+    display: flex;
+    align-items: center;
+    color: #0328aec3;
+    padding: 30px 20px 20px 20px;
+    font-size: 13px;
+}
+
+#menu .logo img{
+    width: 40px;
+    margin-right: 12px;
+}
+
+#menu .item{
+    margin-top: 40px;
+}
+
+#menu  .items li{
+    list-style: none;
+    padding: 15px 0;
+    transition: 0.3s ease;
+}
+
+#menu  .items li:hover{
+    background: #0328aec3;
+    cursor: pointer;
+}
+
+#menu  .items li:nth-child(4){
+    border-left: 4px solid #0328aec3;
+}
+
+#menu  .items li:nth-child(8){
+    margin-top: 30px;
+    color: #929293;
+}
+
+#menu  .items li i{
+    color: #0328aec3;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    margin: 0 10px 0 25px;
+}
+
+#menu  .items li:hover i,
+#menu  .items li:hover a{
+    color: #ffffff;
+}
+
+#menu  .items li a{
+    text-decoration: none;
+    color: #0328aec3;
+    font-weight: 300px;
+    transition: 0.3s ease;
+}
+
+#interface{
+    width: calc(100% - 300px);
+    margin-left: 300px;
+    position: relative;
+}
+
+#interface .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    padding: 10px 30px;
+    border-bottom: 3px solid #0328aec3;
+    height: 70px; 
+    position: fixed;
+    width: calc(100% - 300px);
+}
+
+#interface .navigation .search {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  border: 1px solid #d7dbe6;
+  border-radius: 4px;
+}
+
+#interface .navigation .search i{
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+#interface .navigation .search input{
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+
+#interface .navigation .profile{
+    display: flex;
+    align-items: center;
+     height: 100%;
+}
+
+#interface .navigation .profile i{
+    margin: 0 20px 0 0;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+#interface .navigation .profile img{
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0;
+}
+
+.i-name{
+    color: #0328aec3;
+    padding: 30px 30px 0 30px;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 70px;
+}
+
+.n1{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#menu-btn{
+    display: none;
+    color: #2b2b2b;
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.app-status-card,  .progress-container, .details {
+    background: #fff;
+    border-radius: 6px;
+    padding: 1.5rem 2rem;
+    width: 95%;
+    margin: 30px 0 30px 30px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+.app-status-card h2 {
+    font-size: 20px;
+    margin-bottom: 0.5rem;
+    color: #111;
+}
+
+.app-status-card hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin-bottom: 1.2rem;
+}
+
+.meta{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 12px;
+    column-gap: 20px;
+    align-items: center;
+    font-size: 14px;
+}
+
+.meta .label {
+    font-weight: 600;
+    color: #222;
+}
+
+.meta .value {
+    color: #333;
+}
+
+.status-dot {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-dot .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #f4c430; /* gold-ish */
+    border-radius: 50%;
+}
+
+.progress-container { 
+    padding-top:1.5rem; 
+}
+.steps { 
+    display:flex; 
+    justify-content:space-between; 
+    position:relative; 
+    margin-bottom:1rem; 
+}
+.step { 
+    text-align:center; 
+    flex:1; 
+    font-size:.9rem; 
+    color:#999; 
+    position:relative; 
+}
+.step.active, .step.done { 
+    color:#2d6a4f; 
+    font-weight:600; 
+}
+.step::before { 
+    content: ''; 
+    width:12px; 
+    height:12px; 
+    background:#ccc; 
+    border-radius:50%; 
+    display:block; margin:0 auto .5rem; 
+}
+.step.active::before, .step.done::before { 
+    background:#2d6a4f; 
+}
+.progress-bar { 
+    width:100%; 
+    height:6px; 
+    background:#e0e0e0; 
+    position:relative; 
+}
+#progress { 
+    background:#2d6a4f; 
+    height:100%; 
+    width:0%; 
+    transition:width .3s ease; 
+}
+.details { 
+    display:flex; 
+    gap:2rem; 
+    flex-wrap:wrap; 
+}
+.remarks, .docs { 
+    flex:1; 
+}
+.docs ul { 
+    list-style:none; 
+}
+.docs li { 
+    margin-bottom:.3rem; 
+}
+.done { 
+    color:green; 
+}
+.missing { 
+    color:red; 
+}
+.actions { 
+    display:flex; 
+    gap:1rem; 
+}
+.actions button { 
+    padding:.6rem 1.2rem; 
+    border:none; 
+    border-radius:4px; 
+    cursor:pointer; 
+    font-weight:600; 
+}
+#upload-btn { 
+    background:#0328aec3; 
+    color:#fff; 
+    margin: 10px 0 30px 30px;
+}
+#back-btn { 
+    background:#e0e0e0; 
+    margin: 10px 0 30px 0px;
+}
+
+@media (max-width: 768px) {
+    .secondary-cards {
+        flex-direction: column;
+      }
+    }
+
+@media screen and (max-width: 769px) {
+    #menu {
+        width: 270px;
+        position: fixed;
+        left: -270px;
+    }
+    #menu-btn{
+        display: initial;
+    }
+    #menu.active{
+        left: 0px;
+    }
+    #interface {
+        width: 100%;
+        margin-left: 0px;
+        display: inline-block;
+        transition: 0.3 ease;
+    }
+    #menu.active~ #interface{
+        width: calc(100% - 270px);
+        margin-left: 270px;
+        transition: 0.3 ease;
+    }
+    #interface .navigation {
+        width: 100%;
+    }
+    .scholars {
+        padding: 30px 30px 0 30px;
+        justify-content: flex-start;
+    }
+    .scholars .val-box {
+        padding: 16px 20px;
+        margin: 10px 20px 10px 0;
+    }
+    .board {
+        width: 92%;
+        padding: 0;
+        overflow-x: auto;
+    }
+    table{
+        width: 100%;
+        border-collapse: collapse;
+    }
+}
+
+@media screen and (max-width: 477px) {
+    #interface .navigation {
+        padding: 15px;
+    }
+    #interface .navigation .search input{
+        width: 150px;
+    }
+    .i-name{
+        padding: 30px 15px 0 15px;
+    }
+    .scholars{
+        padding: 15px 15px 0 15px;
+    }
+    .scholars .val-box{
+        width: 100%;
+        margin: 8px 0;
+    }
+    .board{
+        margin: 30px 15px 30px 15px;
+    }
+}
