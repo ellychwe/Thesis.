@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Status</title>
+    <link rel="stylesheet" href="status.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/d8f1bbefaf.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+
+    <section id="menu">
+        <div class="logo">
+            <img src="logo.png" alt="">
+            <h2>Scholarship System</h2>
+        </div>
+        <div class="items">
+            <li><i class="fa-solid fa-gauge"></i><a href="#">Dashboard</a></li>
+            <li><i class="fa-solid fa-user"></i><a href="#">My Profile</a></li>
+            <li><i class="fa-solid fa-file-import"></i><a href="#">Apply for Scholarship</a></li>
+            <li><i class="fa-solid fa-circle-notch"></i><a href="#">Application Status</a></li>
+            <li><i class="fa-solid fa-file"></i><a href="#">Documents</a></li>
+            <li><i class="fa-solid fa-file-contract"></i><a href="#">Renewal & Expiry Tracker</a></li>
+            <li><i class="fa-solid fa-square-poll-vertical"></i><a href="#">Scholarship Results</a></li>
+            <li id="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="#">Log-out</a></li>
+        </div>
+
+    </section>
+    
+    <section id="interface">
+        <div class="navigation">
+            <div class="n1">
+                <div>
+                    <i id="menu-btn" class="fa-solid fa-bars"></i>
+                </div>
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+                <div class="profile">
+                    <i class="fa-solid fa-comment"></i>
+                    <i class="fa-solid fa-bell"></i>
+                    <img src="account.jpg" alt="Profile" class="profile-icon"/>
+                </div>  
+            </div>
+            </div>
+
+            <h3 class="i-name">
+                Application Status
+            </h3>
+
+            <div class="app-status-card">
+            <h2>TDP-SUC Grant</h2>
+            <hr>
+            <div class="meta">
+                <div class="label">Application ID</div>
+                <div class="value">SUC2025-0012</div>
+                <div class="label">Current Status</div>
+
+                <div class="label">Submission Date</div>
+                <div class="value">April 28, 2025</div>
+                <div class="value status-dot">
+                    <span class="dot"></span> #14 in queueing number
+                </div>
+            </div>
+        </div>
+
+            <div class="progress-container">
+                <div class="steps">
+                <div class="step active">Submitted</div>
+                <div class="step">Under Review</div>
+                <div class="step">Requirements Complete</div>
+                <div class="step">Approve/Rejected</div>
+                </div>
+                <div class="progress-bar"><div id="progress"></div></div>
+            </div>
+
+            <div class="details">
+                <div class="remarks">
+                <h3>Remarks</h3>
+                <p>Your application is being reviewed. Please upload the signed TDP‑SUC form to complete your submission.</p>
+                </div>
+                <div class="docs">
+                <h3>Documents Submission</h3>
+                <ul>
+                    <li class="done">✔ Certificate of Grades (1st Sem)</li>
+                    <li class="done">✔ Certificate of Registration</li>
+                    <li class="missing">✖ TDP‑SUC form</li>
+                </ul>
+                </div>
+            </div>
+
+            <div class="actions">
+                <button id="upload-btn">Upload Missing Document</button>
+                <button id="back-btn">Back to Dashboard</button>
+            </div>
+
+    </section>
+    <script>
+        $('#menu-btn').click(function(){
+        $('#menu').toggleClass("active");
+        });
+
+        const steps = document.querySelectorAll(".step");
+        const progress = document.getElementById("progress");
+        const queueNumber = document.getElementById("queue-number");
+
+        // Example: currentStep = 2 means "Under Review" (0-indexed)
+        let currentStep = 1;
+
+        function updateProgress() {
+        steps.forEach((el, idx) => {
+            el.classList.toggle("active", idx === currentStep);
+            el.classList.toggle("done", idx < currentStep);
+        });
+        const pct = (currentStep) / (steps.length - 1) * 100;
+        progress.style.width = pct + "%";
+        }
+
+        // Setup buttons (optional)
+        document.getElementById("upload-btn").addEventListener("click", () => {
+        alert("Open upload dialog for missing doc.");
+        });
+        document.getElementById("back-btn").addEventListener("click", () => {
+        window.location.href = "students/dashboard.html";
+        });
+
+        // Initial draw
+        updateProgress();
+
+        // Example: simulate next step after 3 seconds
+        setTimeout(() => {
+        currentStep = 2;
+        updateProgress();
+        }, 3000);
+
+    </script>
+
+</body>
+</html>
