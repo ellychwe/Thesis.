@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="profile.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/d8f1bbefaf.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+
+    <section id="menu">
+        <div class="logo">
+            <img src="logo.png" alt="">
+            <h2>Scholarship System</h2>
+        </div>
+        <div class="items">
+            <li><i class="fa-solid fa-gauge"></i><a href="#">Dashboard</a></li>
+            <li><i class="fa-solid fa-user"></i><a href="#">My Profile</a></li>
+            <li><i class="fa-solid fa-file-import"></i><a href="#">Apply for Scholarship</a></li>
+            <li><i class="fa-solid fa-circle-notch"></i><a href="#">Application Status</a></li>
+            <li><i class="fa-solid fa-file"></i><a href="#">Documents</a></li>
+            <li><i class="fa-solid fa-file-contract"></i><a href="#">Renewal & Expiry Tracker</a></li>
+            <li><i class="fa-solid fa-square-poll-vertical"></i><a href="#">Scholarship Results</a></li>
+            <li id="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="#">Log-out</a></li>
+        </div>
+
+    </section>
+    
+    <section id="interface">
+        <div class="navigation">
+            <div class="n1">
+                <div>
+                    <i id="menu-btn" class="fa-solid fa-bars"></i>
+                </div>
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+                <div class="profile">
+                    <i class="fa-solid fa-comment"></i>
+                    <i class="fa-solid fa-bell"></i>
+                    <img src="account.jpg" alt="Profile" class="profile-icon"/>
+                </div>  
+            </div>
+            </div>
+
+            <div class="container">
+                <h2>My Profile</h2>
+
+                <div class="section">
+                <div class="profile">
+                    <img src="account.jpg" alt="Avatar">
+                    <div class="profile-details">
+                    <strong>Karylle B. Bautista</strong><br>
+                    <small>Student ID: 226039</small><br>
+                    <small>TDP Scholar</small>
+                    </div>
+                    <button class="edit-btn">Edit</button>
+                </div>
+                </div>
+
+                <div class="section">
+                <div class="section-header">
+                    <h3>Personal Information</h3>
+                    <button class="edit-btn">Edit</button>
+                </div>
+                <div class="info-grid">
+                    <p><span>First Name</span>Karylle</p>
+                    <p><span>Middle Name</span>Bautista</p>
+                    <p><span>Last Name</span>Bautista</p>
+                    <p><span>Gender</span>Female</p>
+                    <p><span>Age</span>21 years old</p>
+                    <p><span>Email Address</span>karylle@gmail.com</p>
+                    <p><span>Phone Number</span>+63 917 1234567</p>
+                    <p><span>Address</span>Ibajay, Aklan</p>
+                </div>
+                </div>
+
+                <div class="section">
+                <div class="bottom-grid">
+                    <div class="bottom-section">
+                    <div class="section-header">
+                        <h3>Academic Information</h3>
+                        <button class="edit-btn">Edit</button>
+                    </div>
+                    <div class="info-grid">
+                        <p><span>Program</span>Bachelor of Science in Computer Science</p>
+                        <p><span>Year Level and Section</span>III-B</p>
+                        <p><span>Academic Status</span>Regular Student</p>
+                        <p><span>Enrollment Status</span>Enrolled</p>
+                    </div>
+                    </div>
+                    <div class="bottom-section">
+                    <div class="section-header">
+                        <h3>Scholarship Information</h3>
+                        <button class="edit-btn">Edit</button>
+                    </div>
+                    <div class="info-grid">
+                        <p><span>Scholarship Program</span>Tulong Dunong Program - SUC</p>
+                        <p><span>Validity Period</span>Academic Year 2024–2025</p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+
+                <button class="logout-btn">Log out</button>
+            </div>
+
+    </section>
+    <script>
+        $('#menu-btn').click(function(){
+        $('#menu').toggleClass("active");
+        });
+    </script>
+
+</body>
+</html>
