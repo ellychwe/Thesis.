@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarship1</title>
+    <link rel="stylesheet" href="s1.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/d8f1bbefaf.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+
+    <section id="menu">
+        <div class="logo">
+            <img src="logo.png" alt="">
+            <h2>Scholarship System</h2>
+        </div>
+        <div class="items">
+            <li><i class="fa-solid fa-gauge"></i><a href="#">Dashboard</a></li>
+            <li><i class="fa-solid fa-file"></i><a href="#">Reports</a></li>
+            <li><i class="fa-solid fa-gear"></i><a href="#">Settings</a></li>
+            <li id="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="#">Log-out</a></li>
+        </div>
+
+    </section>
+    
+    <section id="interface">
+        <div class="navigation">
+            <div class="n1">
+                <div>
+                    <i id="menu-btn" class="fa-solid fa-bars"></i>
+                </div>
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+                <div class="profile">
+                    <i class="fa-solid fa-comment"></i>
+                    <i class="fa-solid fa-bell"></i>
+                    <img src="account.jpg" alt="Profile" class="profile-icon"/>
+                </div>  
+            </div>
+            </div>
+
+            <h3 class="i-name">
+                Tertiary Education Subsidy
+            </h3>
+
+            <div class="documents">
+                <div class="val-box">
+                    <div class="filter">Filter
+                        <input type="text" id="min-date" placeholder="From">
+                        <input type="text" id="max-date" placeholder="To">
+                        <button id="clear">Search</button>
+                    </div>
+                </div>
+                <div class="right-buttons">
+                    <div class="val-box same-size">
+                        <button class="imppbtn">Import File</button>
+                    </div>
+                    <div class="val-box same-size">
+                        <button class="exportbtn">Export PDF</button>
+                    </div>
+                    <div class="val-box same-size">
+                        <button class="exportbtn">Export Excel</button>
+                    </div>
+                </div>
+            </div>
+
+            <dir class="board">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <td>Seq.</td>
+                            <td>Award No. per NOA</td>
+                            <td>Name</td>
+                            <td>Sex</td>
+                            <td>Address</td>
+                            <td>Program</td>
+                            <td>Curriculum Year/Level</td>
+                            <td>GWA</td>
+                            <td>Number of Units Enrolled</td>
+                            <td>Financial benefits per semester</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="no.">
+                                <h5>1</h5>
+                            </td>
+
+                            <td class="award no.">
+                                <p>HSSP-0616-24-06</p>
+                            </td>
+
+                            <td class="name">
+                                <p>Gelito, Ronald June Dorado</p>
+                            </td>
+
+                            <td class="sex">
+                                <p>M</p>
+                            </td>
+
+                            <td class="address">
+                                <p>San Jose, Ibajay, Aklan</p>
+                            </td>
+                            
+                            <td class="program">
+                                <p>BSCS</p>
+                            </td>
+
+                            <td class="year">
+                                <p>1</p>
+                            </td>
+                            
+                            <td class="gwa">
+                                <p>1.54</p>
+                            </td>
+
+                            <td class="units">
+                                <p>23</p>
+                            </td>
+
+                            <td class="amount">
+                                <p>20,000.00</p>
+                            </td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </dir>
+    </section>
+    <script>
+        $('#menu-btn').click(function(){
+        $('#menu').toggleClass("active");
+        });
+    </script>
+
+</body>
+</html>
