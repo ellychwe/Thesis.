@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verification</title>
+    <link rel="stylesheet" href="verification.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/d8f1bbefaf.js" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+
+    <section id="menu">
+        <div class="logo">
+            <img src="logo.png" alt="">
+            <h2>Scholarship System</h2>
+        </div>
+        <div class="items">
+            <li><i class="fa-solid fa-gauge"></i><a href="#">Dashboard</a></li>
+            <li><i class="fa-solid fa-file-pen"></i><a href="#">Verification</a></li>
+            <li><i class="fa-solid fa-file-import"></i><a href="#">Liquidation</a></li>
+            <li><i class="fa-solid fa-file"></i><a href="#">Reports</a></li>
+            <li><i class="fa-brands fa-google-scholar"></i><a href="#">Scholars List</a></li>
+            <li><i class="fa-solid fa-gear"></i><a href="#">Settings</a></li>
+            <li id="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="#">Log-out</a></li>
+        </div>
+
+    </section>
+    
+    <section id="interface">
+        <div class="navigation">
+            <div class="n1">
+                <div>
+                    <i id="menu-btn" class="fa-solid fa-bars"></i>
+                </div>
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+                <div class="profile">
+                    <i class="fa-solid fa-comment"></i>
+                    <i class="fa-solid fa-bell"></i>
+                    <img src="account.jpg" alt="Profile" class="profile-icon"/>
+                </div>  
+            </div>
+            </div>
+
+            <h3 class="i-name">
+                Verification
+            </h3>
+
+            <div class="documents">
+                <div class="val-box">
+                    <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">
+                        All Scholarships <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                    </div>
+                </div>
+            <div class="right-buttons">
+                    <div class="val-box same-size">
+                        <button class="imppbtn">Import File</button>
+                    </div>
+                    <div class="val-box same-size">
+                        <button class="exportbtn">Export PDF</button>
+                    </div>
+                    <div class="val-box same-size">
+                        <button class="exportbtn">Export Excel</button>
+                    </div>
+            </div>
+            </div>
+
+
+            <div class="board">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <td>School ID</td>
+                            <td>Name</td>
+                            <td>Scholarship</td>
+                            <td>Date Submitted</td>
+                            <td>Status</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="id">
+                                <h5>226039</h5>
+                            </td>
+                            <td class="people">
+                                <p>Choi Seungcheol</>
+                            </td>
+                            <td class="scholarship">
+                                <p>TES</p>
+                            </td>
+                            <td class="date">
+                                <p>05-25-2025</p>
+                            </td>
+                            <td class="status">
+                                <p>Pending</p>
+                            </td>
+                            <td class="action"><a href="#">View</a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="id">
+                                <h5>226039</h5>
+                            </td>
+                            <td class="people">
+                                <p>Choi Seungcheol</p>
+                            </td>
+                            <td class="scholarship">
+                                <p>TES</p>
+                            </td>
+                            <td class="date">
+                                <p>05-25-2025</p>
+                            </td>
+                            <td class="status">
+                                <p>Pending</p>
+                            </td>
+                            <td class="action"><a href="#">View</a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="id">
+                                <h5>226039</h5>
+                            </td>
+                            <td class="people">
+                                <p>Choi Seungcheol</p>
+                            </td>
+                            <td class="scholarship">
+                                <p>TES</p>
+                            </td>
+                            <td class="date">
+                                <p>05-25-2025</p>
+                            </td>
+                            <td class="status">
+                                <p>Pending</p>
+                            </td>
+                            <td class="action"><a href="#">View</a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="id">
+                                <h5>226039</h5>
+                            </td>
+                            <td class="people">
+                                <p>Choi Seungcheol</p>
+                            </td>
+                            <td class="scholarship">
+                                <p>TES</p>
+                            </td>
+                            <td class="date">
+                                <p>05-25-2025</p>
+                            </td>
+                            <td class="status">
+                                <p>Pending</p>
+                            </td>
+                            <td class="action"><a href="#">View</a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="id">
+                                <h5>226039</h5>
+                            </td>
+                            <td class="people">
+                                <p>Choi Seungcheol</p>
+                            </td>
+                            <td class="scholarship">
+                                <p>TES</p>
+                            </td>
+                            <td class="date">
+                                <p>05-25-2025</p>
+                            </td>
+                            <td class="status">
+                                <p>Pending</p>
+                            </td>
+                            <td class="action"><a href="#">View</a></td>
+                        </tr>
+
+                        <tr>
+                            <td class="id">
+                                <h5>226039</h5>
+                            </td>
+                            <td class="people">
+                                <p>Choi Seungcheol</p>
+                            </td>
+                            <td class="scholarship">
+                                <p>TES</p>
+                            </td>
+                            <td class="date">
+                                <p>05-25-2025</p>
+                            </td>
+                            <td class="status">
+                                <p>Pending</p>
+                            </td>
+                            <td class="action"><a href="#">View</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </section>
+<script>
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+  window.addEventListener("click", function (event) {
+    if (!event.target.closest('.dropdown')) {
+      document.querySelectorAll(".dropdown-content").forEach(function (drop) {
+        drop.classList.remove("show");
+      });
+    }
+  });
+</script>
+
+
+</body>
+</html>
