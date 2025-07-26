@@ -19,14 +19,14 @@
             <h2>Scholarship System</h2>
         </div>
         <div class="items">
-            <li><i class="fa-solid fa-gauge"></i><a href="#">Dashboard</a></li>
-            <li><i class="fa-solid fa-user"></i><a href="#">My Profile</a></li>
-            <li><i class="fa-solid fa-file-import"></i><a href="#">Apply for Scholarship</a></li>
-            <li><i class="fa-solid fa-circle-notch"></i><a href="#">Application Status</a></li>
-            <li><i class="fa-solid fa-file"></i><a href="#">Documents</a></li>
-            <li><i class="fa-solid fa-file-contract"></i><a href="#">Renewal & Expiry Tracker</a></li>
-            <li><i class="fa-solid fa-square-poll-vertical"></i><a href="#">Scholarship Results</a></li>
-            <li id="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="#">Log-out</a></li>
+            <li><i class="fa-solid fa-globe" class="active"></i><a href="/frontend/students/dashboard/dashboard.html">Dashboard</a></li>
+            <li><i class="fa-solid fa-user"></i><a href="/frontend/students/profile/profile.html">My Profile</a></li>
+            <li><i class="fa-solid fa-file-import"></i><a href="/frontend/students/apply/apply.html">Apply for Scholarship</a></li>
+            <li><i class="fa-solid fa-circle-notch"></i><a href="/frontend/students/status/status.html">Application Status</a></li>
+            <li><i class="fa-solid fa-file"></i><a href="/frontend/students/documents/documents.html">Documents</a></li>
+            <li><i class="fa-solid fa-file-contract"></i><a href="/frontend/students/renew/renew.html">Renewal & Expiry Tracker</a></li>
+            <li><i class="fa-solid fa-square-poll-vertical"></i><a href="/frontend/students/results/results.html">Scholarship Results</a></li>
+            <li id="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="/frontend/login.html">Log-out</a></li>
         </div>
 
     </section>
@@ -37,17 +37,34 @@
                 <div>
                     <i id="menu-btn" class="fa-solid fa-bars"></i>
                 </div>
-                <div class="search">
+                <div class="search" id="searchInput">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search">
+                    <input type="search" placeholder="Search">
                 </div>
             </div>
-                <div class="profile">
-                    <i class="fa-solid fa-comment"></i>
-                    <i class="fa-solid fa-bell"></i>
-                    <img src="account.jpg" alt="Profile" class="profile-icon"/>
+                <div class="profile" id="profileDropdown">
+                    <i class="fa-solid fa-comment" id="messages"></i>
+                     <i class="fa-solid fa-bell" id="notifications"><span id="notifCount" class="count"></span></i>
+                    <img src="account.jpg" alt="Profile" class="profile-icon" id="profilePic"/>
                 </div>  
             </div>
+            </div>
+
+            <div id="chat-container">
+                <div class="chat-header">
+                    <span>Message</span>
+                    <button id="closeChat">&times;</button>
+                </div>
+                <div id="chat-messages"></div>
+                <div class="chat-input">
+                    <input id="messageInput" type="text" placeholder="Type your message..." />
+                    <button id="sendBtn">Send</button>
+                </div>
+            </div>
+
+           <div id="notifDropdown" class="notif-dropdown">
+                <div class="notif-header">Notifications</div>
+                <ul id="notifList"></ul>
             </div>
 
             <h3 class="i-name">
@@ -107,9 +124,28 @@
         </div>
 
     </section>
+    <script src="sidebar.js" defer></script>
     <script>
-        $('#menu-btn').click(function(){
-        $('#menu').toggleClass("active");
+        $(document).ready(function() {
+            $('#menu-btn').click(function() {
+                $('#menu').toggleClass("active");
+            });
+        });
+    </script>
+    <script src="topbar.js" defer></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="chat.js"></script>
+    <script>
+        const messageIcon = document.getElementById('messages'); // topbar icon
+        const chatContainer = document.getElementById('chat-container');
+        const closeChat = document.getElementById('closeChat');
+
+        messageIcon.addEventListener('click', () => {
+            chatContainer.classList.toggle('show');
+        });
+
+        closeChat.addEventListener('click', () => {
+            chatContainer.classList.remove('show');
         });
     </script>
 
