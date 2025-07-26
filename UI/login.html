@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="login.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/d8f1bbefaf.js" crossorigin="anonymous"></script>
-
 </head>
 <body>
     <div class="container">
@@ -15,26 +14,38 @@
             <h1 id="title">Scholarship Information System</h1>
             <form>
                 <div class="input-group">
-                    <div class="input-field" id="nameField">
+                    
+                    <!-- Username -->
+                    <div class="input-field">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Username">
+                        <input type="text" id="username" placeholder="Username">
                     </div>
 
+                    <!-- Password -->
                     <div class="input-field">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Password">
+                        <input type="password" id="password" placeholder="Password">
+                        <i class="fa-solid fa-eye" id="togglePassword" style="cursor:pointer;"></i>
                     </div>
-                    <div class = "remember">
-                        <label><input type="checkbox" class="checkbox">Remember me </label>
-                     </div>
-                <div class="btn-field">
-                    <button type="button" id="logInBtn">Login</button>
+
+                    <!-- Remember Me -->
+                    <div class="remember">
+                        <label><input type="checkbox" id="rememberMe" class="checkbox"> Remember me </label>
+                    </div>
+
+                    <!-- Error message -->
+                    <p id="error-message"></p>
+
+                    <!-- Login Button -->
+                    <div class="btn-field">
+                        <button type="button" id="logInBtn">Login</button>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
 
-    <script src="frontend/script.js"></script>
-    
+    <!-- ✅ Correct script path -->
+    <script src="script.js" defer></script>
 </body>
 </html>
