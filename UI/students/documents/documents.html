@@ -1,151 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documents</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
     <link rel="stylesheet" href="documents.css">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <script src="https://kit.fontawesome.com/d8f1bbefaf.js" crossorigin="anonymous"></script>
-
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 </head>
-<body>
 
+<body>
     <section id="menu">
         <div class="logo">
-            <img src="logo.png" alt="">
+            <img src="logo.png" alt="Logo">
             <h2>Scholarship System</h2>
         </div>
         <div class="items">
-            <li><i class="fa-solid fa-gauge"></i><a href="#">Dashboard</a></li>
-            <li><i class="fa-solid fa-user"></i><a href="#">My Profile</a></li>
-            <li><i class="fa-solid fa-file-import"></i><a href="#">Apply for Scholarship</a></li>
-            <li><i class="fa-solid fa-circle-notch"></i><a href="#">Application Status</a></li>
-            <li><i class="fa-solid fa-file"></i><a href="#">Documents</a></li>
-            <li><i class="fa-solid fa-file-contract"></i><a href="#">Renewal & Expiry Tracker</a></li>
-            <li><i class="fa-solid fa-square-poll-vertical"></i><a href="#">Scholarship Results</a></li>
-            <li id="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="#">Log-out</a></li>
+            <li><i class="fa-solid fa-globe"></i><a href="/frontend/students/dashboard/dashboard.html">Dashboard</a>
+            </li>
+            <li><i class="fa-solid fa-user"></i><a href="/frontend/students/profile/profile.html">My Profile</a></li>
+            <li><i class="fa-solid fa-file-import"></i><a href="/frontend/students/apply/apply.html">Apply for
+                    Scholarship</a></li>
+            <li><i class="fa-solid fa-circle-notch"></i><a href="/frontend/students/status/status.html">Application
+                    Status</a></li>
+            <li class="active"><i class="fa-solid fa-file"></i><a
+                    href="/frontend/students/documents/documents.html">Documents</a></li>
+            <li><i class="fa-solid fa-file-contract"></i><a href="/frontend/students/renew/renew.html">Renewal & Expiry
+                    Tracker</a></li>
+            <li><i class="fa-solid fa-square-poll-vertical"></i><a
+                    href="/frontend/students/results/results.html">Scholarship Results</a></li>
+            <li id="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="/frontend/login.html">Log-out</a>
+            </li>
         </div>
-
     </section>
-    
+
     <section id="interface">
         <div class="navigation">
             <div class="n1">
                 <div>
                     <i id="menu-btn" class="fa-solid fa-bars"></i>
                 </div>
-                <div class="search">
+                <div class="search" id="searchInput">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search">
+                    <input type="search" placeholder="Search">
                 </div>
             </div>
-                <div class="profile">
-                    <i class="fa-solid fa-comment"></i>
-                    <i class="fa-solid fa-bell"></i>
-                    <img src="account.jpg" alt="Profile" class="profile-icon"/>
-                </div>  
+            <div class="profile" id="profileDropdown">
+                <i class="fa-solid fa-comment" id="messages"></i>
+                <i class="fa-solid fa-bell" id="notifications"><span id="notifCount" class="count"></span></i>
+                <img src="account.jpg" alt="Profile photo of Karylle B. Bautista" class="profile-icon"
+                    id="profilePic" />
             </div>
-            </div>
-
-            <h3 class="i-name">
-                Documents and Files
-            </h3>
-
-            <div class="top-bar">
-            <input type="text" placeholder="Search...">
-            <select>
-            <option>Sort by</option>
-            </select>
         </div>
 
-        <div class="folders">
-            <div class="folder"><span class="folder-icon">📁</span> 1st Year Files</div>
-            <div class="folder"><span class="folder-icon">📁</span> 2nd Year Files</div>
-            <div class="folder"><span class="folder-icon">📁</span> 3rd Year Files</div>
-            <div class="folder"><span class="folder-icon">📁</span> Forms</div>
-            <div class="folder"><span class="folder-icon">📁</span> Other Files</div>
+        <!-- Chat Container -->
+        <div id="chat-container">
+            <div class="chat-header">
+                <span>Message</span>
+                <button id="closeChat">&times;</button>
+            </div>
+            <div id="chat-messages"></div>
+            <div class="chat-input">
+                <input id="messageInput" type="text" placeholder="Type your message..." />
+                <button id="sendBtn">Send</button>
+            </div>
         </div>
 
-        <div class="files-table">
-            <table>
-            <thead>
-                <tr>
-                <th>Name</th>
-                <th>Last Modified</th>
-                <th>Location</th>
-                <th>Size</th>
-                <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Repeat row -->
-                <tr>
-                <td>Certificate of Grades</td>
-                <td>You opened · May 9, 2025</td>
-                <td>
-                    <div class="folder-location">
-                    <span class="folder-icon">📁</span> 3rd Year Files
+        <!-- Notifications -->
+        <div id="notifDropdown" class="notif-dropdown">
+            <div class="notif-header">Notifications</div>
+            <ul id="notifList"></ul>
+        </div>
+        </div>
+
+        <div class="content-area">
+            <div class="header-section">
+                <div>
+                    <h3 class="i-name">Documents and Files</h3>
+                    <p class="subtitle">12 items</p>
+                </div>
+                <div class="upload-controls">
+                    <button id="uploadBtn" class="upload-btn">
+                        <i class="fas fa-plus"></i> Add Files
+                    </button>
+                    <input type="file" id="fileInput" multiple hidden />
+                    <button class="settings-btn">
+                        <i class="fas fa-sliders-h"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="dropzone" class="dropzone hidden">
+                <p>Drop files here or click to upload</p>
+            </div>
+
+            <div class="file-grid">
+                <div class="file-item" onclick="goToFolder('work-projects')">
+                    <div class="file-icon folder-blue"><i class="fa-solid fa-folder"></i></div>
+                    <p class="file-title">First Year files</p>
+                    <p class="file-subtitle">3 items</p>
+                </div>
+                <div class="file-item" onclick="goToFolder('vacation-photos')">
+                    <div class="file-icon folder-blue"><i class="fa-solid fa-folder"></i></div>
+                    <p class="file-title">Second Year files</p>
+                    <p class="file-subtitle">24 items</p>
+                </div>
+                <div class="file-item">
+                    <div class="file-icon file-red"><i class="fas fa-file-pdf"></i></div>
+                    <p class="file-title">TDP-SUC Form.pdf</p>
+                    <p class="file-subtitle">2.4 MB</p>
+                </div>
+                <div class="file-item">
+                    <div class="file-icon file-blue"><i class="fas fa-file-word"></i></div>
+                    <p class="file-title">Form.docx</p>
+                    <p class="file-subtitle">1.8 MB</p>
+                </div>
+                <div class="file-item">
+                    <div class="file-icon file-green"><i class="fas fa-file-excel"></i></div>
+                    <p class="file-title">Masterlist.xlsx</p>
+                    <p class="file-subtitle">3.1 MB</p>
+                </div>
+                <div class="file-item">
+                    <div class="file-icon file-yellow"><i class="fas fa-image"></i></div>
+                    <p class="file-title">Form.png</p>
+                    <p class="file-subtitle">4.2 MB</p>
+                </div>
+                <div class="file-item">
+                    <div class="file-icon file-gray"><i class="fas fa-file-archive"></i></div>
+                    <p class="file-title">Archive.zip</p>
+                    <p class="file-subtitle">120.5 MB</p>
+                </div>
+            </div>
+
+            <div class="recent-activity">
+                <h3>Recent Activity</h3>
+                <div class="activity-entry">
+                    <img src="account.jpg" alt="User ">
+                    <div>
+                        <p><strong>You</strong> added "Masterlist.xlsx"</p>
+                        <small>2 hours ago</small>
                     </div>
-                </td>
-                <td>3 MB</td>
-                <td><span class="ellipsis">⋮</span></td>
-                </tr>
-                <!-- Duplicate this row as needed -->
-                <tr>
-                <td>Certificate of Grades</td>
-                <td>You opened · May 9, 2025</td>
-                <td>
-                    <div class="folder-location">
-                    <span class="folder-icon">📁</span> 3rd Year Files
+                </div>
+                <div class="activity-entry">
+                    <img src="logo.png" alt="Jane Cooper">
+                    <div>
+                        <p><strong>You</strong> shared "TDP-SUC Form.pdf"</p>
+                        <small>Yesterday</small>
                     </div>
-                </td>
-                <td>3 MB</td>
-                <td><span class="ellipsis">⋮</span></td>
-                </tr>
-                <!-- Add more rows if needed -->
-            </tbody>
-            </table>
+                </div>
+            </div>
         </div>
     </section>
-<script>
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    window.addEventListener("click", function (event) {
-        if (!event.target.closest('.dropdown')) {
-        document.querySelectorAll(".dropdown-content").forEach(function (drop) {
-            drop.classList.remove("show");
+    <script>
+        $(document).ready(function () {
+            $('#menu-btn').click(function () {
+                $('#menu').toggleClass("active");
+            });
         });
-        }
-    });
-
-    document.getElementById('hierarchy').addEventListener('click', e => {
-    const span = e.target.closest('span.folder');
-    if (!span) return;
-
-    const container = span.parentElement;
-    const expanded = container.getAttribute('data-isexpanded') === 'true';
-    container.setAttribute('data-isexpanded', expanded ? 'false' : 'true');
-    });
-
-    const searchInput = document.getElementById('search');
-    searchInput.addEventListener('input', () => {
-    const term = searchInput.value.toLowerCase();
-    document.querySelectorAll('#hierarchy .foldercontainer').forEach(container => {
-        const folderText = container.querySelector('span.folder').textContent.toLowerCase();
-        const files = container.querySelectorAll('span.file');
-        const fileMatch = Array.from(files).some(f => f.textContent.toLowerCase().includes(term));
-        const visible = folderText.includes(term) || fileMatch;
-        container.style.display = visible ? '' : 'none';
-    });
-    });
-
-</script>
-
-
+    </script>
+    <script src="folder.js" defer></script>
+    <script src="topbar.js"></script>
+    <script src="chat.js"></script>
+    <script src="sidebar.js" defer></script>
 </body>
+
 </html>
