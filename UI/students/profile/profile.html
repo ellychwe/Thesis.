@@ -1,71 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Profile</title>
-    <link rel="stylesheet" href="profile.css">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <script src="https://kit.fontawesome.com/d8f1bbefaf.js" crossorigin="anonymous"></script>
-
+    <link rel="icon" type="image/x-icon" href="logo.png" />
+    <link rel="stylesheet" href="profile.css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
 </head>
+
 <body>
 
+    <!-- Sidebar -->
     <section id="menu">
         <div class="logo">
-            <img src="logo.png" alt="">
+            <img src="logo.png" alt="Logo" />
             <h2>Scholarship System</h2>
         </div>
         <div class="items">
-            <li><i class="fa-solid fa-gauge"></i><a href="#">Dashboard</a></li>
-            <li><i class="fa-solid fa-user"></i><a href="#">My Profile</a></li>
-            <li><i class="fa-solid fa-file-import"></i><a href="#">Apply for Scholarship</a></li>
-            <li><i class="fa-solid fa-circle-notch"></i><a href="#">Application Status</a></li>
-            <li><i class="fa-solid fa-file"></i><a href="#">Documents</a></li>
-            <li><i class="fa-solid fa-file-contract"></i><a href="#">Renewal & Expiry Tracker</a></li>
-            <li><i class="fa-solid fa-square-poll-vertical"></i><a href="#">Scholarship Results</a></li>
-            <li id="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="#">Log-out</a></li>
+            <li><i class="fa-solid fa-globe"></i><a href="/frontend/students/dashboard/dashboard.html">Dashboard</a>
+            </li>
+            <li class="active"><i class="fa-solid fa-user"></i><a href="/frontend/students/profile/profile.html">My
+                    Profile</a></li>
+            <li><i class="fa-solid fa-file-import"></i><a href="/frontend/students/apply/apply.html">Apply for
+                    Scholarship</a></li>
+            <li><i class="fa-solid fa-circle-notch"></i><a href="/frontend/students/status/status.html">Application
+                    Status</a></li>
+            <li><i class="fa-solid fa-file"></i><a href="/frontend/students/documents/documents.html">Documents</a></li>
+            <li><i class="fa-solid fa-file-contract"></i><a href="/frontend/students/renew/renew.html">Renewal & Expiry
+                    Tracker</a></li>
+            <li><i class="fa-solid fa-square-poll-vertical"></i><a
+                    href="/frontend/students/results/results.html">Scholarship Results</a></li>
+            <li id="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="/frontend/login.html">Log-out</a>
+            </li>
         </div>
-
     </section>
-    
+
+    <!-- Main Interface -->
     <section id="interface">
         <div class="navigation">
             <div class="n1">
                 <div>
                     <i id="menu-btn" class="fa-solid fa-bars"></i>
                 </div>
-                <div class="search">
+                <div class="search" id="searchInput">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search">
+                    <input type="search" placeholder="Search">
                 </div>
             </div>
-                <div class="profile">
-                    <i class="fa-solid fa-comment"></i>
-                    <i class="fa-solid fa-bell"></i>
-                    <img src="account.jpg" alt="Profile" class="profile-icon"/>
-                </div>  
+            <div class="profile" id="profileDropdown">
+                <i class="fa-solid fa-comment" id="messages"></i>
+                <i class="fa-solid fa-bell" id="notifications"><span id="notifCount" class="count"></span></i>
+                <img src="account.jpg" alt="Profile photo of Karylle B. Bautista" class="profile-icon"
+                    id="profilePic" />
             </div>
+        </div>
+
+        <!-- Chat Container -->
+        <div id="chat-container">
+            <div class="chat-header">
+                <span>Message</span>
+                <button id="closeChat">&times;</button>
             </div>
+            <div id="chat-messages"></div>
+            <div class="chat-input">
+                <input id="messageInput" type="text" placeholder="Type your message..." />
+                <button id="sendBtn">Send</button>
+            </div>
+        </div>
 
-            <div class="container">
-                <h2>My Profile</h2>
+        <!-- Notifications -->
+        <div id="notifDropdown" class="notif-dropdown">
+            <div class="notif-header">Notifications</div>
+            <ul id="notifList"></ul>
+        </div>
 
-                <div class="section">
-                <div class="profile">
-                    <img src="account.jpg" alt="Avatar">
+        <!-- Profile Container -->
+        <div class="container">
+            <h2>My Profile</h2>
+
+            <div class="section">
+                <div class="profilee">
+                    <img src="account.jpg" alt="Avatar" />
                     <div class="profile-details">
-                    <strong>Karylle B. Bautista</strong><br>
-                    <small>Student ID: 226039</small><br>
-                    <small>TDP Scholar</small>
+                        <strong id="studentName">Karylle B. Bautista</strong><br />
+                        <small id="studentID">Student ID: 226039</small><br />
+                        <small id="scholarType">TDP Scholar</small>
                     </div>
-                    <button class="edit-btn">Edit</button>
                 </div>
-                </div>
+            </div>
 
-                <div class="section">
+            <div class="section">
                 <div class="section-header">
                     <h3>Personal Information</h3>
                     <button class="edit-btn">Edit</button>
@@ -80,44 +108,55 @@
                     <p><span>Phone Number</span>+63 917 1234567</p>
                     <p><span>Address</span>Ibajay, Aklan</p>
                 </div>
-                </div>
-
-                <div class="section">
-                <div class="bottom-grid">
-                    <div class="bottom-section">
-                    <div class="section-header">
-                        <h3>Academic Information</h3>
-                        <button class="edit-btn">Edit</button>
-                    </div>
-                    <div class="info-grid">
-                        <p><span>Program</span>Bachelor of Science in Computer Science</p>
-                        <p><span>Year Level and Section</span>III-B</p>
-                        <p><span>Academic Status</span>Regular Student</p>
-                        <p><span>Enrollment Status</span>Enrolled</p>
-                    </div>
-                    </div>
-                    <div class="bottom-section">
-                    <div class="section-header">
-                        <h3>Scholarship Information</h3>
-                        <button class="edit-btn">Edit</button>
-                    </div>
-                    <div class="info-grid">
-                        <p><span>Scholarship Program</span>Tulong Dunong Program - SUC</p>
-                        <p><span>Validity Period</span>Academic Year 2024–2025</p>
-                    </div>
-                    </div>
-                </div>
-                </div>
-
-                <button class="logout-btn">Log out</button>
             </div>
 
+            <div class="section">
+                <div class="bottom-grid">
+                    <div class="bottom-section">
+                        <div class="section-header">
+                            <h3>Academic Information</h3>
+                            <button class="edit-btn">Edit</button>
+                        </div>
+                        <div class="info-grid">
+                            <p><span>Program</span>Bachelor of Science in Computer Science</p>
+                            <p><span>Year Level and Section</span>III-B</p>
+                            <p><span>Academic Status</span>Regular Student</p>
+                            <p><span>Enrollment Status</span>Enrolled</p>
+                        </div>
+                    </div>
+
+                    <div class="bottom-section">
+                        <div class="section-header">
+                            <h3>Scholarship Information</h3>
+                            <button class="edit-btn">Edit</button>
+                        </div>
+                        <div class="info-grid">
+                            <p><span>Scholarship Program</span>Tulong Dunong Program - SUC</p>
+                            <p><span>Validity Period</span>Academic Year 2024–2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="logoutButton" class="logout-btn">Log out</button>
+        </div>
     </section>
+
+    <!-- Scripts -->
     <script>
-        $('#menu-btn').click(function(){
-        $('#menu').toggleClass("active");
+        $('#menu-btn').click(function () {
+            $('#menu').toggleClass("active");
+        });
+
+        document.getElementById('logoutButton').addEventListener('click', function () {
+            window.location.href = '/frontend/login.html';
         });
     </script>
+    <script src="/frontend/students/profile/edit.js" defer></script>
+    <script src="topbar.js"></script>
+    <script src="chat.js"></script>
+    <script src="sidebar.js" defer></script>
 
 </body>
+
 </html>
