@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apply for Scholarship</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
     <link rel="stylesheet" href="apply.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <script src="https://kit.fontawesome.com/d8f1bbefaf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
+
 <body>
 
     <section id="menu">
@@ -19,90 +22,111 @@
             <h2>Scholarship System</h2>
         </div>
         <div class="items">
-            <li><i class="fa-solid fa-gauge"></i><a href="#">Dashboard</a></li>
-            <li><i class="fa-solid fa-user"></i><a href="#">My Profile</a></li>
-            <li><i class="fa-solid fa-file-import"></i><a href="#">Apply for Scholarship</a></li>
-            <li><i class="fa-solid fa-circle-notch"></i><a href="#">Application Status</a></li>
-            <li><i class="fa-solid fa-file"></i><a href="#">Documents</a></li>
-            <li><i class="fa-solid fa-file-contract"></i><a href="#">Renewal & Expiry Tracker</a></li>
-            <li><i class="fa-solid fa-square-poll-vertical"></i><a href="#">Scholarship Results</a></li>
-            <li id="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="#">Log-out</a></li>
+            <li><i class="fa-solid fa-globe"></i><a href="/frontend/students/dashboard/dashboard.html">Dashboard</a>
+            </li>
+            <li><i class="fa-solid fa-user"></i><a href="/frontend/students/profile/profile.html">My Profile</a></li>
+            <li><i class="fa-solid fa-file-import" class="active"></i><a
+                    href="/frontend/students/apply/apply.html">Apply for Scholarship</a></li>
+            <li><i class="fa-solid fa-circle-notch"></i><a href="/frontend/students/status/status.html">Application
+                    Status</a></li>
+            <li><i class="fa-solid fa-file"></i><a href="/frontend/students/documents/documents.html">Documents</a></li>
+            <li><i class="fa-solid fa-file-contract"></i><a href="/frontend/students/renew/renew.html">Renewal & Expiry
+                    Tracker</a></li>
+            <li><i class="fa-solid fa-square-poll-vertical"></i><a
+                    href="/frontend/students/results/results.html">Scholarship Results</a></li>
+            <li id="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="/frontend/login.html">Log-out</a>
+            </li>
         </div>
 
     </section>
-    
+
     <section id="interface">
         <div class="navigation">
             <div class="n1">
                 <div>
                     <i id="menu-btn" class="fa-solid fa-bars"></i>
                 </div>
-                <div class="search">
+                <div class="search" id="searchInput">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search">
+                    <input type="search" placeholder="Search">
                 </div>
             </div>
-                <div class="profile">
-                    <i class="fa-solid fa-comment"></i>
-                    <i class="fa-solid fa-bell"></i>
-                    <img src="account.jpg" alt="Profile" class="profile-icon"/>
-                </div>  
+            <div class="profile" id="profileDropdown">
+                <i class="fa-solid fa-comment" id="messages"></i>
+                <i class="fa-solid fa-bell" id="notifications"><span id="notifCount" class="count"></span></i>
+                <img src="account.jpg" alt="Profile photo of Karylle B. Bautista" class="profile-icon"
+                    id="profilePic" />
             </div>
-            </div>
+        </div>
 
-            <div class="container">
-                <div class="breadcrumbs">Home / Form</div>
-                <h1>Scholarships</h1>
-                
-                    <div class="documents">
-                    <div class="val-box">
-                        <div class="dropdown">
+        <!-- Chat Container -->
+        <div id="chat-container">
+            <div class="chat-header">
+                <span>Message</span>
+                <button id="closeChat">&times;</button>
+            </div>
+            <div id="chat-messages"></div>
+            <div class="chat-input">
+                <input id="messageInput" type="text" placeholder="Type your message..." />
+                <button id="sendBtn">Send</button>
+            </div>
+        </div>
+
+        <!-- Notifications -->
+        <div id="notifDropdown" class="notif-dropdown">
+            <div class="notif-header">Notifications</div>
+            <ul id="notifList"></ul>
+        </div>
+
+        <div class="container">
+            <div class="breadcrumb">
+                <span class="breadcrumb-item home">Home</span> /
+                <span class="breadcrumb-item form">Form</span>
+            </div>
+            <h1>Scholarships</h1>
+
+            <div class="documents">
+                <div class="val-box">
+                    <div class="dropdown">
                         <button onclick="myFunction()" class="dropbtn">
                             All Scholarships <i class="fa fa-caret-down"></i>
                         </button>
                         <div id="myDropdown" class="dropdown-content">
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
-                        </div>
+                            <a href="#">TDP</a>
+                            <a href="#">TES</a>
+                            <a href="#">PGCSP</a>
+                            <a href="#">CMSP</a>
+                            <a href="#">COSCHO</a>
+                            <a href="#">IGUBAN</a>
                         </div>
                     </div>
-                <div class="right-buttons">
-                        <div class="val-box same-size">
-                            <button class="imppbtn">Import File</button>
-                        </div>
-                        <div class="val-box same-size">
-                            <button class="exportbtn">Export PDF</button>
-                        </div>
-                        <div class="val-box same-size">
-                            <button class="exportbtn">Export Excel</button>
-                        </div>
                 </div>
-                </div>
+            </div>
 
-                <div class="board">
-                    <table>
-                        <thead>
+            <div class="board">
+                <table>
+                    <thead>
                         <tr>
                             <td>Scholarship</td>
                             <td>Available Slots</td>
                             <td>Action</td>
                         </tr>
-                        </thead>
-                        <tbody>
+                    </thead>
+                    <tbody>
                         <tr>
                             <td><strong>TDP–SUC</strong></td>
                             <td>21</td>
-                            <td><a href="form.html"><button class="apply-btn">Apply Now</button></a> </td>
+                            <td><a href="\frontend\students\apply\form\form.html"><button class="apply-btn">Apply
+                                        Now</button></a> </td>
                         </tr>
-                        </tbody>
-                    </table>
-                    </div>
+                    </tbody>
+                </table>
+            </div>
 
     </section>
     <script>
-        $('#menu-btn').click(function(){
-        $('#menu').toggleClass("active");
+        $('#menu-btn').click(function () {
+            $('#menu').toggleClass("active");
         });
 
         function myFunction() {
@@ -111,12 +135,27 @@
 
         window.addEventListener("click", function (event) {
             if (!event.target.closest('.dropdown')) {
-            document.querySelectorAll(".dropdown-content").forEach(function (drop) {
-                drop.classList.remove("show");
-            });
+                document.querySelectorAll(".dropdown-content").forEach(function (drop) {
+                    drop.classList.remove("show");
+                });
             }
         });
     </script>
+    <script>
+        const path = window.location.pathname.toLowerCase();
+        console.log("Current path:", path); // ✅ Check what it prints
 
+        if (path.includes("/apply/apply.html")) {
+            document.querySelector(".breadcrumb-item.home").classList.add("active");
+        }
+
+        if (path.includes("/apply/form/form.html")) {
+            document.querySelector(".breadcrumb-item.form").classList.add("active");
+        }
+    </script>
+    <script src="topbar.js"></script>
+    <script src="chat.js"></script>
+    <script src="sidebar.js" defer></script>
 </body>
+
 </html>
