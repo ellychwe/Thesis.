@@ -1,227 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scholarship Results</title>
-    <link rel="stylesheet" href="results.css">
-    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <script src="https://kit.fontawesome.com/d8f1bbefaf.js" crossorigin="anonymous"></script>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Scholarship Results</title>
+  <link rel="icon" type="image/x-icon" href="logo.png" />
+  <link rel="stylesheet" href="results.css" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
 </head>
+
 <body>
 
-    <section id="menu">
-        <div class="logo">
-            <img src="logo.png" alt="">
-            <h2>Scholarship System</h2>
+  <section id="menu">
+    <div class="logo">
+      <img src="logo.png" alt="">
+      <h2>Scholarship System</h2>
+    </div>
+    <div class="items">
+      <li><i class="fa-solid fa-globe"></i><a href="/frontend/students/dashboard/dashboard.html">Dashboard</a></li>
+      <li><i class="fa-solid fa-user"></i><a href="/frontend/students/profile/profile.html">My Profile</a></li>
+      <li><i class="fa-solid fa-file-import"></i><a href="/frontend/students/apply/apply.html">Apply for Scholarship</a>
+      </li>
+      <li><i class="fa-solid fa-circle-notch"></i><a href="/frontend/students/status/status.html">Application Status</a>
+      </li>
+      <li><i class="fa-solid fa-file"></i><a href="/frontend/students/documents/documents.html">Documents</a></li>
+      <li><i class="fa-solid fa-file-contract"></i><a href="/frontend/students/renew/renew.html">Renewal & Expiry
+          Tracker</a></li>
+      <li><i class="fa-solid fa-square-poll-vertical active"></i><a
+          href="/frontend/students/results/results.html">Scholarship Results</a></li>
+      <li id="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="/frontend/login.html">Log-out</a></li>
+    </div>
+  </section>
+
+  <section id="interface">
+    <div class="navigation">
+      <div class="n1">
+        <div>
+          <i id="menu-btn" class="fa-solid fa-bars"></i>
         </div>
-        <div class="items">
-            <li><i class="fa-solid fa-gauge"></i><a href="#">Dashboard</a></li>
-            <li><i class="fa-solid fa-user"></i><a href="#">My Profile</a></li>
-            <li><i class="fa-solid fa-file-import"></i><a href="#">Apply for Scholarship</a></li>
-            <li><i class="fa-solid fa-circle-notch"></i><a href="#">Application Status</a></li>
-            <li><i class="fa-solid fa-file"></i><a href="#">Documents</a></li>
-            <li><i class="fa-solid fa-file-contract"></i><a href="#">Renewal & Expiry Tracker</a></li>
-            <li><i class="fa-solid fa-square-poll-vertical"></i><a href="#">Scholarship Results</a></li>
-            <li id="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="#">Log-out</a></li>
+        <div class="search" id="searchInput">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="search" placeholder="Search">
         </div>
+      </div>
+      <div class="profile" id="profileDropdown">
+        <i class="fa-solid fa-comment" id="messages"></i>
+        <i class="fa-solid fa-bell" id="notifications"><span id="notifCount" class="count"></span></i>
+        <img src="account.jpg" alt="Profile photo of Karylle B. Bautista" class="profile-icon" id="profilePic" />
+      </div>
+    </div>
 
-    </section>
-    
-    <section id="interface">
-        <div class="navigation">
-            <div class="n1">
-                <div>
-                    <i id="menu-btn" class="fa-solid fa-bars"></i>
-                </div>
-                <div class="search">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search">
-                </div>
-            </div>
-                <div class="profile">
-                    <i class="fa-solid fa-comment"></i>
-                    <i class="fa-solid fa-bell"></i>
-                    <img src="account.jpg" alt="Profile" class="profile-icon"/>
-                </div>  
-            </div>
-            </div>
+    <!-- Chat Container -->
+    <div id="chat-container">
+      <div class="chat-header">
+        <span>Message</span>
+        <button id="closeChat">&times;</button>
+      </div>
+      <div id="chat-messages"></div>
+      <div class="chat-input">
+        <input id="messageInput" type="text" placeholder="Type your message..." />
+        <button id="sendBtn">Send</button>
+      </div>
+    </div>
 
-            <h3 class="i-name">
-                Scholarship Results and Update
-            </h3>
+    <!-- Notifications -->
+    <div id="notifDropdown" class="notif-dropdown">
+      <div class="notif-header">Notifications</div>
+      <ul id="notifList"></ul>
+    </div>
+    </div>
+    </div>
 
-            <div class="documents">
-                <div class="val-box">
-                    <div class="dropdown">
-                    <button onclick="myFunction()" class="dropbtn">
-                        All Scholarship<i class="fa fa-caret-down"></i>
-                    </button>
-                    <div id="myDropdown" class="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                    </div>
-                    </div>
-                </div>
-            <div class="right-buttons">
-                    <div class="val-box same-size">
-                        <button class="imppbtn">Import File</button>
-                    </div>
-                    <div class="val-box same-size">
-                        <button class="exportbtn">Export PDF</button>
-                    </div>
-                    <div class="val-box same-size">
-                        <button class="exportbtn">Export Excel</button>
-                    </div>
-            </div>
-            </div>
+    <h3 class="i-name">Scholarship Results and Update</h3>
 
-            <div class="board">
-                <table width="100%">
-                    <thead>
-                        <tr>
-                            <td>Deadline</td>
-                            <td>Scholarship</td>
-                            <td>Compliance</td>
-                            <td>Status</td>
-                            <td>Remarks</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="deadline">
-                                <p>2025-05-12</p>
-                            </td>
+    <div class="documents">
+      <div class="val-box">
+        <div class="dropdown">
+          <button onclick="toggleDropdown()" class="dropbtn">
+            All Scholarships <i class="fa fa-caret-down"></i>
+          </button>
+          <div id="myDropdown" class="dropdown-content">
+            <a href="#" onclick="filterStatus('all')">All</a>
+            <a href="#" onclick="filterStatus('TDP')">TDP</a>
+            <a href="#" onclick="filterStatus('TES')">TES</a>
+            <a href="#" onclick="filterStatus('PGCSP')">PGCSP</a>
+            <a href="#" onclick="filterStatus('COSCHO')">COSCHO</a>
+            <a href="#" onclick="filterStatus('CMSP')">CMSP</a>
+            <a href="#" onclick="filterStatus('IGUBAN')">IGUBAN</a>
+          </div>
+        </div>
+      </div>
+      <div class="right-buttons">
+        <button class="exportbtn" onclick="exportToPDF()">Export PDF</button>
+        <button class="exportbtn" onclick="exportToExcel()">Export Excel</button>
+      </div>
+    </div>
 
-                            <td class="scholarship">
-                                <h5>PGCSP</h5>
-                            </td>
+    <div class="board">
+      <table id="scholarshipTable">
+        <thead>
+          <tr>
+            <th>Deadline</th>
+            <th>Scholarship</th>
+            <th>Compliance</th>
+            <th>Status</th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2025-05-12</td>
+            <td class="scholarship">
+              <h5>PGCSP</h5>
+            </td>
+            <td>Renewal</td>
+            <td class="status">
+              <p>Approved</p>
+            </td>
+            <td>Congratulations!</td>
+          </tr>
+          <tr>
+            <td>2025-05-12</td>
+            <td class="scholarship">
+              <h5>TES</h5>
+            </td>
+            <td>New</td>
+            <td class="status">
+              <p>Approved</p>
+            </td>
+            <td>Well done!</td>
+          </tr>
+          <tr>
+            <td>2025-05-12</td>
+            <td class="scholarship">
+              <h5>TDP</h5>
+            </td>
+            <td>Renewal</td>
+            <td class="status">
+              <p>Approved</p>
+            </td>
+            <td>Keep it up!</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-                            <td class="compliance">
-                                <p>Renewal</p>
-                            </td>
-
-                            <td class="status">
-                                <p>Approved</p>
-                            </td>
-
-                            <td class="remarks">
-                                <p>Congratulations!</p>
-                            </td>
-                        </tr>
-
-                                                <tr>
-                            <td class="deadline">
-                                <p>2025-05-12</p>
-                            </td>
-
-                            <td class="scholarship">
-                                <h5>PGCSP</h5>
-                            </td>
-
-                            <td class="compliance">
-                                <p>Renewal</p>
-                            </td>
-
-                            <td class="status">
-                                <p>Approved</p>
-                            </td>
-
-                            <td class="remarks">
-                                <p>Congratulations!</p>
-                            </td>
-                        </tr>
-
-                                                <tr>
-                            <td class="deadline">
-                                <p>2025-05-12</p>
-                            </td>
-
-                            <td class="scholarship">
-                                <h5>PGCSP</h5>
-                            </td>
-
-                            <td class="compliance">
-                                <p>Renewal</p>
-                            </td>
-
-                            <td class="status">
-                                <p>Approved</p>
-                            </td>
-
-                            <td class="remarks">
-                                <p>Congratulations!</p>
-                            </td>
-                        </tr>
-
-                                                <tr>
-                            <td class="deadline">
-                                <p>2025-05-12</p>
-                            </td>
-
-                            <td class="scholarship">
-                                <h5>PGCSP</h5>
-                            </td>
-
-                            <td class="compliance">
-                                <p>Renewal</p>
-                            </td>
-
-                            <td class="status">
-                                <p>Approved</p>
-                            </td>
-
-                            <td class="remarks">
-                                <p>Congratulations!</p>
-                            </td>
-                        </tr>
-
-                                                <tr>
-                            <td class="deadline">
-                                <p>2025-05-12</p>
-                            </td>
-
-                            <td class="scholarship">
-                                <h5>PGCSP</h5>
-                            </td>
-
-                            <td class="compliance">
-                                <p>Renewal</p>
-                            </td>
-
-                            <td class="status">
-                                <p>Approved</p>
-                            </td>
-
-                            <td class="remarks">
-                                <p>Congratulations!</p>
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-
-    </section>
-<script>
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    window.addEventListener("click", function (event) {
-        if (!event.target.closest('.dropdown')) {
-        document.querySelectorAll(".dropdown-content").forEach(function (drop) {
-            drop.classList.remove("show");
-        });
-        }
-    });
-
-</script>
-
-
+  <script src="results.js" defer></script>
+  <script src="topbar.js"></script>
+  <script src="chat.js"></script>
+  <script src="sidebar.js" defer></script>
 </body>
+
 </html>
