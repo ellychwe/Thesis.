@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Application Status</title>
+    <link rel="icon" type="image/x-icon" href="logo.png">
     <link rel="stylesheet" href="status.css">
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-    <script src="https://kit.fontawesome.com/d8f1bbefaf.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
+
 <body>
 
     <section id="menu">
@@ -19,42 +22,67 @@
             <h2>Scholarship System</h2>
         </div>
         <div class="items">
-            <li><i class="fa-solid fa-gauge"></i><a href="#">Dashboard</a></li>
-            <li><i class="fa-solid fa-user"></i><a href="#">My Profile</a></li>
-            <li><i class="fa-solid fa-file-import"></i><a href="#">Apply for Scholarship</a></li>
-            <li><i class="fa-solid fa-circle-notch"></i><a href="#">Application Status</a></li>
-            <li><i class="fa-solid fa-file"></i><a href="#">Documents</a></li>
-            <li><i class="fa-solid fa-file-contract"></i><a href="#">Renewal & Expiry Tracker</a></li>
-            <li><i class="fa-solid fa-square-poll-vertical"></i><a href="#">Scholarship Results</a></li>
-            <li id="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="#">Log-out</a></li>
+            <li><i class="fa-solid fa-globe"></i><a href="/frontend/students/dashboard/dashboard.html">Dashboard</a>
+            </li>
+            <li><i class="fa-solid fa-user"></i><a href="/frontend/students/profile/profile.html">My Profile</a></li>
+            <li><i class="fa-solid fa-file-import"></i><a href="/frontend/students/apply/apply.html">Apply for
+                    Scholarship</a></li>
+            <li><i class="fa-solid fa-circle-notch" class="active"></i><a
+                    href="/frontend/students/status/status.html">Application Status</a></li>
+            <li><i class="fa-solid fa-file"></i><a href="/frontend/students/documents/documents.html">Documents</a></li>
+            <li><i class="fa-solid fa-file-contract"></i><a href="/frontend/students/renew/renew.html">Renewal & Expiry
+                    Tracker</a></li>
+            <li><i class="fa-solid fa-square-poll-vertical"></i><a
+                    href="/frontend/students/results/results.html">Scholarship Results</a></li>
+            <li id="logout"><i class="fa-solid fa-right-from-bracket"></i><a href="/frontend/login.html">Log-out</a>
+            </li>
         </div>
 
     </section>
-    
+
     <section id="interface">
         <div class="navigation">
             <div class="n1">
                 <div>
                     <i id="menu-btn" class="fa-solid fa-bars"></i>
                 </div>
-                <div class="search">
+                <div class="search" id="searchInput">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" placeholder="Search">
+                    <input type="search" placeholder="Search">
                 </div>
             </div>
-                <div class="profile">
-                    <i class="fa-solid fa-comment"></i>
-                    <i class="fa-solid fa-bell"></i>
-                    <img src="account.jpg" alt="Profile" class="profile-icon"/>
-                </div>  
+            <div class="profile" id="profileDropdown">
+                <i class="fa-solid fa-comment" id="messages"></i>
+                <i class="fa-solid fa-bell" id="notifications"><span id="notifCount" class="count"></span></i>
+                <img src="account.jpg" alt="Profile photo of Karylle B. Bautista" class="profile-icon"
+                    id="profilePic" />
             </div>
+        </div>
+
+        <!-- Chat Container -->
+        <div id="chat-container">
+            <div class="chat-header">
+                <span>Message</span>
+                <button id="closeChat">&times;</button>
             </div>
+            <div id="chat-messages"></div>
+            <div class="chat-input">
+                <input id="messageInput" type="text" placeholder="Type your message..." />
+                <button id="sendBtn">Send</button>
+            </div>
+        </div>
 
-            <h3 class="i-name">
-                Application Status
-            </h3>
+        <!-- Notifications -->
+        <div id="notifDropdown" class="notif-dropdown">
+            <div class="notif-header">Notifications</div>
+            <ul id="notifList"></ul>
+        </div>
 
-            <div class="app-status-card">
+        <h3 class="i-name">
+            Application Status
+        </h3>
+
+        <div class="app-status-card">
             <h2>TDP-SUC Grant</h2>
             <hr>
             <div class="meta">
@@ -70,76 +98,93 @@
             </div>
         </div>
 
-            <div class="progress-container">
-                <div class="steps">
+        <div class="progress-container">
+            <div class="steps">
                 <div class="step active">Submitted</div>
                 <div class="step">Under Review</div>
                 <div class="step">Requirements Complete</div>
                 <div class="step">Approve/Rejected</div>
-                </div>
-                <div class="progress-bar"><div id="progress"></div></div>
             </div>
+            <div class="progress-bar">
+                <div id="progress"></div>
+            </div>
+        </div>
 
-            <div class="details">
-                <div class="remarks">
+        <div class="details">
+            <div class="remarks">
                 <h3>Remarks</h3>
-                <p>Your application is being reviewed. Please upload the signed TDP‑SUC form to complete your submission.</p>
-                </div>
-                <div class="docs">
+                <p>Your application is being reviewed. Please upload the signed TDP‑SUC form to complete your
+                    submission.</p>
+            </div>
+            <div class="docs">
                 <h3>Documents Submission</h3>
                 <ul>
                     <li class="done">✔ Certificate of Grades (1st Sem)</li>
                     <li class="done">✔ Certificate of Registration</li>
                     <li class="missing">✖ TDP‑SUC form</li>
                 </ul>
-                </div>
             </div>
+        </div>
 
-            <div class="actions">
-                <button id="upload-btn">Upload Missing Document</button>
-                <button id="back-btn">Back to Dashboard</button>
+        <div class="actions">
+            <button id="openModalBtn" class="upload-btn">Upload Missing Document</button>
+            <button id="back-btn">Back to Dashboard</button>
+        </div>
+
+        <div id="uploadModal" class="modal-overlay">
+            <div class="modal-content">
+                <span class="close-button" id="closeModalBtn">&times;</span>
+                <h2>📄 Upload TDP-SUC Form</h2>
+
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <label for="fileInput" class="file-label">Choose a file (PDF or Image only)</label>
+                    <input type="file" id="fileInput" name="tdpSUCForm" accept=".pdf,.jpg,.jpeg,.png" required>
+                    <p id="fileNamePreview" class="file-name-preview"></p>
+
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
             </div>
-
+        </div>
     </section>
     <script>
-        $('#menu-btn').click(function(){
-        $('#menu').toggleClass("active");
+        $('#menu-btn').click(function () {
+            $('#menu').toggleClass("active");
         });
 
         const steps = document.querySelectorAll(".step");
         const progress = document.getElementById("progress");
         const queueNumber = document.getElementById("queue-number");
 
-        // Example: currentStep = 2 means "Under Review" (0-indexed)
         let currentStep = 1;
 
         function updateProgress() {
-        steps.forEach((el, idx) => {
-            el.classList.toggle("active", idx === currentStep);
-            el.classList.toggle("done", idx < currentStep);
-        });
-        const pct = (currentStep) / (steps.length - 1) * 100;
-        progress.style.width = pct + "%";
+            steps.forEach((el, idx) => {
+                el.classList.toggle("active", idx === currentStep);
+                el.classList.toggle("done", idx < currentStep);
+            });
+            const pct = (currentStep) / (steps.length - 1) * 100;
+            progress.style.width = pct + "%";
         }
 
-        // Setup buttons (optional)
-        document.getElementById("upload-btn").addEventListener("click", () => {
-        alert("Open upload dialog for missing doc.");
+        document.getElementById("openModalBtn").addEventListener("click", () => {
+            alert("Open upload dialog for missing doc.");
         });
         document.getElementById("back-btn").addEventListener("click", () => {
-        window.location.href = "students/dashboard.html";
+            window.location.href = "students/dashboard.html";
         });
 
-        // Initial draw
         updateProgress();
 
-        // Example: simulate next step after 3 seconds
         setTimeout(() => {
-        currentStep = 2;
-        updateProgress();
+            currentStep = 2;
+            updateProgress();
         }, 3000);
 
     </script>
-
+    <script src="upload.js"></script>
+    <script src="topbar.js"></script>
+    <script src="chat.js"></script>
+    <script src="sidebar.js" defer></script>
 </body>
+
 </html>
