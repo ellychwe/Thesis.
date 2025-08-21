@@ -1,28 +1,28 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'Poppins';
     box-sizing: border-box;
 }
 
-body{
+body {
     width: 100%;
     background: #f4f4f4;
     position: relative;
     display: flex;
 }
 
-#menu{
+#menu {
     background: #ffffff;
     width: 300px;
     height: 100%;
-    box-shadow: 5px 0px 32px 6px rgba(0,0,0,0.26);
+    box-shadow: 5px 0px 32px 6px rgba(0, 0, 0, 0.26);
     position: fixed;
     top: 0%;
     left: 0%;
 }
 
-#menu .logo{
+#menu .logo {
     display: flex;
     align-items: center;
     color: #0328aec3;
@@ -30,36 +30,36 @@ body{
     font-size: 13px;
 }
 
-#menu .logo img{
+#menu .logo img {
     width: 40px;
     margin-right: 12px;
 }
 
-#menu .item{
+#menu .item {
     margin-top: 40px;
 }
 
-#menu  .items li{
+#menu .items li {
     list-style: none;
     padding: 15px 0;
     transition: 0.3s ease;
 }
 
-#menu  .items li:hover{
+#menu .items li:hover {
     background: #0328aec3;
     cursor: pointer;
 }
 
-#menu  .items li:nth-child(1){
+#menu .items li:nth-child(1) {
     border-left: 4px solid #0328aec3;
 }
 
-#menu  .items li:nth-child(7){
+#menu .items li:nth-child(7) {
     margin-top: 80px;
     color: #929293;
 }
 
-#menu  .items li i{
+#menu .items li i {
     color: #0328aec3;
     width: 30px;
     height: 30px;
@@ -81,7 +81,7 @@ body{
     transition: 0.3s ease;
 }
 
-#interface{
+#interface {
     width: calc(100% - 300px);
     margin-left: 300px;
     position: relative;
@@ -94,25 +94,25 @@ body{
     background: #ffffff;
     padding: 10px 30px;
     border-bottom: 3px solid #0328aec3;
-    height: 70px; 
+    height: 70px;
     position: fixed;
     width: calc(100% - 300px);
 }
 
 #interface .navigation .search {
-  display: flex;
-  align-items: center;
-  padding: 6px 12px;
-  border: 1px solid #d7dbe6;
-  border-radius: 4px;
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    border: 1px solid #d7dbe6;
+    border-radius: 4px;
 }
 
-#interface .navigation .search i{
+#interface .navigation .search i {
     margin-right: 10px;
     font-size: 16px;
 }
 
-#interface .navigation .search input{
+#interface .navigation .search input {
     flex: 1;
     border: none;
     outline: none;
@@ -121,20 +121,20 @@ body{
     padding: 0;
 }
 
-#interface .navigation .profile{
+#interface .navigation .profile {
     display: flex;
     align-items: center;
-     height: 100%;
+    height: 100%;
 }
 
-#interface .navigation .profile i{
+#interface .navigation .profile i {
     margin: 0 20px 0 0;
     font-size: 19px;
     font-weight: 400;
     line-height: 1;
 }
 
-#interface .navigation .profile img{
+#interface .navigation .profile img {
     width: 30px;
     height: 30px;
     object-fit: cover;
@@ -142,7 +142,7 @@ body{
     margin: 0;
 }
 
-.i-name{
+.i-name {
     color: #0328aec3;
     padding: 30px 30px 0 30px;
     font-size: 24px;
@@ -150,13 +150,13 @@ body{
     margin-top: 70px;
 }
 
-.n1{
+.n1 {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
-#menu-btn{
+#menu-btn {
     display: none;
     color: #2b2b2b;
     font-size: 20px;
@@ -164,7 +164,7 @@ body{
     margin-right: 20px;
 }
 
-.scholars{
+.scholars {
     padding: 30px 30px 0 30px;
     display: flex;
     justify-content: space-between;
@@ -172,7 +172,7 @@ body{
     flex-wrap: wrap;
 }
 
-.scholars .val-box{
+.scholars .val-box {
     background: #ffffff;
     width: 235px;
     padding: 16px 20px;
@@ -184,27 +184,27 @@ body{
 }
 
 .scholars .val-box:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.scholars .val-box:nth-child(1) i{
+.scholars .val-box:nth-child(1) i {
     background: #0328aec3;
 }
 
-.scholars .val-box:nth-child(2) i{
+.scholars .val-box:nth-child(2) i {
     background: #d73333;
 }
 
-.scholars .val-box:nth-child(3) i{
+.scholars .val-box:nth-child(3) i {
     background: #980707;
 }
 
-.scholars .val-box:nth-child(4) i{
+.scholars .val-box:nth-child(4) i {
     background: #0a2483;
 }
 
-.scholars .val-box i{
+.scholars .val-box i {
     font-size: 25px;
     width: 60px;
     height: 60px;
@@ -216,17 +216,17 @@ body{
     margin-right: 15px;
 }
 
-.scholars .val-box h3{
+.scholars .val-box h3 {
     font-size: 18px;
     font-weight: 600;
 }
 
-.scholars .val-box span{
+.scholars .val-box span {
     font-size: 14px;
     color: #929293;
 }
 
-.board{
+.board {
     width: 95%;
     margin: 30px 0 30px 30px;
     overflow: auto;
@@ -234,26 +234,26 @@ body{
     border-radius: 8px;
 }
 
-.board h5{
+.board h5 {
     font-weight: 600;
     font-size: 14px;
 }
 
-.board p{
+.board p {
     font-weight: 400;
     font-size: 13px;
     color: #4e4e4f;
 }
 
-table{
+table {
     border-collapse: collapse;
 }
 
-tr{
+tr {
     border-bottom: 1px solid #dfdede;
 }
 
-thead td{
+thead td {
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 400;
@@ -262,11 +262,11 @@ thead td{
     padding: 15px;
 }
 
-tbody tr td{
+tbody tr td {
     padding: 10px 15px;
 }
 
-.status p{
+.status p {
     background: #d7fada;
     padding: 2px 10px;
     display: inline-block;
@@ -274,11 +274,210 @@ tbody tr td{
     color: #2b2b2b;
 }
 
-.edit a{
+
+/* Chat container */
+#chat-container {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    flex-direction: column;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+#chat-container.show {
+    display: flex;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.chat-header {
+    background: #0328aec3;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.chat-header button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Messages area */
+#chat-messages {
+    height: 250px;
+    padding: 10px;
+    overflow-y: auto;
+    background: #f5f5f5;
+}
+
+/* Chat input area */
+.chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.chat-input button {
+    background: #0328aec3;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Notification Badge */
+.count {
+    position: absolute;
+    top: 0;
+    /* Move down or up */
+    right: 0;
+    /* Move left or right */
+    transform: translate(50%, -50%);
+    /* ✅ Perfectly centers the badge on the top-right corner */
+    background: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.notif-dropdown {
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    width: 250px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.notif-dropdown.show {
+    display: block;
+}
+
+.notif-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.notif-dropdown li {
+    padding: 8px 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.notif-dropdown li.unread {
+    font-weight: bold;
+    background: #f9f9f9;
+}
+
+.notif-dropdown li:last-child {
+    border-bottom: none;
+}
+
+.edit-btn {
+    background: #0328aec3;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 6px;
     text-decoration: none;
     font-size: 14px;
-    color: #554cd1;
-    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.edit-btn:hover {
+    background: #0056b3;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    max-height: 90vh;
+    overflow-y: auto;
+    text-align: left;
+}
+
+.modal-content h2 {
+    margin-bottom: 15px;
+}
+
+.modal-content label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.modal-content input,
+.modal-content select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.close {
+    color: black;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    float: right;
+}
+
+.save-btn {
+    background: #0328aec3;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 15px;
 }
 
 @media screen and (max-width: 769px) {
@@ -287,40 +486,49 @@ tbody tr td{
         position: fixed;
         left: -270px;
     }
-    #menu-btn{
+
+    #menu-btn {
         display: initial;
     }
-    #menu.active{
+
+    #menu.active {
         left: 0px;
     }
+
     #interface {
         width: 100%;
         margin-left: 0px;
         display: inline-block;
         transition: 0.3 ease;
     }
-    #menu.active~ #interface{
+
+    #menu.active~#interface {
         width: calc(100% - 270px);
         margin-left: 270px;
         transition: 0.3 ease;
     }
+
     #interface .navigation {
         width: 100%;
     }
+
     .scholars {
         padding: 30px 30px 0 30px;
         justify-content: flex-start;
     }
+
     .scholars .val-box {
         padding: 16px 20px;
         margin: 10px 20px 10px 0;
     }
+
     .board {
         width: 92%;
         padding: 0;
         overflow-x: auto;
     }
-    table{
+
+    table {
         width: 100%;
         border-collapse: collapse;
     }
@@ -330,20 +538,25 @@ tbody tr td{
     #interface .navigation {
         padding: 15px;
     }
-    #interface .navigation .search input{
+
+    #interface .navigation .search input {
         width: 150px;
     }
-    .i-name{
+
+    .i-name {
         padding: 30px 15px 0 15px;
     }
-    .scholars{
+
+    .scholars {
         padding: 15px 15px 0 15px;
     }
-    .scholars .val-box{
+
+    .scholars .val-box {
         width: 100%;
         margin: 8px 0;
     }
-    .board{
+
+    .board {
         margin: 30px 15px 30px 15px;
     }
 }
